@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>es</string>
+	<key>CFBundleDisplayName</key>
+	<string>Iconos Agente</string>
+	<key>CFBundleExecutable</key>
+	<string>IconosAgente</string>
+	<key>CFBundleIconFile</key>
+	<string>Iconos</string>
+	<key>CFBundleIconName</key>
+	<string>Iconos</string>
+	<key>CFBundleIdentifier</key>
+	<string>io.github.asubervirojas.iconos.agente</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>es</string>
+		<string>en</string>
+	</array>
+	<key>CFBundleName</key>
+	<string>Iconos Agente</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSBackgroundOnly</key>
+	<true/>
+	<key>LSMinimumSystemVersion</key>
+	<string>26.0</string>
+	<key>NSAppBundlesUsageDescription</key>
+	<string>Iconos Agente cambia el icono de las apps que elegiste en Iconos con el modo claro u oscuro y lo vuelve a poner cuando se actualizan.</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>MIT License</string>
+</dict>
+</plist>

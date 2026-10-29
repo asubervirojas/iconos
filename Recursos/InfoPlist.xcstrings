@@ -1,0 +1,24 @@
+{
+  "sourceLanguage" : "es",
+  "strings" : {
+    "NSAppBundlesUsageDescription" : {
+      "comment" : "Info.plist: por que la app pide Gestion de apps",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos puts the icon you chose inside the app (the Icon file) and switches it with Light or Dark mode."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos pone el icono que elegiste dentro de la app (archivo Icon) y lo cambia con el modo claro u oscuro."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

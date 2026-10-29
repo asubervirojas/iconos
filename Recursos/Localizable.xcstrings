@@ -1,0 +1,4501 @@
+{
+  "sourceLanguage" : "es",
+  "strings" : {
+    "" : {
+      "shouldTranslate" : false
+    },
+    "%@ (%lld)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ (%2$lld)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ (%2$lld)"
+          }
+        }
+      }
+    },
+    "%@ cambió de icono" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ changed its icon"
+          }
+        }
+      }
+    },
+    "%@ cambió su icono: Iconos generó el logo nuevo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ changed its icon: Iconos made the new logo"
+          }
+        }
+      }
+    },
+    "%@ cambió su icono: revisa el logo en Iconos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ changed its icon: check the logo in Iconos"
+          }
+        }
+      }
+    },
+    "%@ está en otra ubicación" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ is in another location"
+          }
+        }
+      }
+    },
+    "%@ se actualizó y perdió el permiso de Iconos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ was updated and lost the Iconos permission"
+          }
+        }
+      }
+    },
+    "%@: icono %@ puesto" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@: %2$@ icon set"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: icono %2$@ puesto"
+          }
+        }
+      }
+    },
+    "%@: modo %@, puesta %@, toca %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@: mode %2$@, current %3$@, expected %4$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: modo %2$@, puesta %3$@, toca %4$@"
+          }
+        }
+      }
+    },
+    "%@: no se encontró la app instalada." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@: the installed app was not found."
+          }
+        }
+      }
+    },
+    "%@: no se pudieron borrar los iconos guardados (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@: could not delete the saved icons (%2$@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: no se pudieron borrar los iconos guardados (%2$@)"
+          }
+        }
+      }
+    },
+    "%@: no se pudieron conservar las imágenes propias (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@: could not keep the custom images (%2$@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: no se pudieron conservar las imágenes propias (%2$@)"
+          }
+        }
+      }
+    },
+    "%@: no se pudo guardar la configuración (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@: could not save the settings (%2$@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: no se pudo guardar la configuración (%2$@)"
+          }
+        }
+      }
+    },
+    "%@: no trae icono propio; elige tus imágenes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@: has no icon of its own; choose your images"
+          }
+        }
+      }
+    },
+    "%@: varias entradas apuntan a la misma app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@: several entries point to the same app."
+          }
+        }
+      }
+    },
+    "%lld %%" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld%%"
+          }
+        }
+      }
+    },
+    "%lld apps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld apps"
+          }
+        }
+      }
+    },
+    "%lld apps cambiaron de icono" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld apps changed their icons"
+          }
+        }
+      }
+    },
+    "%lld apps con error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld apps with errors"
+          }
+        }
+      }
+    },
+    "%lld apps perdieron el permiso al actualizarse" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld apps lost permission when they updated"
+          }
+        }
+      }
+    },
+    "%lld apps personalizadas sin permiso" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld customized apps without permission"
+          }
+        }
+      }
+    },
+    "%lld apps tienen el permiso sin usarlo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld apps have the permission without using it"
+          }
+        }
+      }
+    },
+    "%lld no se podían cambiar." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld couldn't be changed."
+          }
+        }
+      }
+    },
+    "%lld no se pueden cambiar ahora (del sistema, bloqueadas o sin permiso): se saltan." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld can't be changed now (system, locked or without permission) and will be skipped."
+          }
+        }
+      }
+    },
+    "%lld por ciento" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld percent"
+          }
+        }
+      }
+    },
+    "%lld. %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld. %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld. %2$@"
+          }
+        }
+      }
+    },
+    "1 app" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 app"
+          }
+        }
+      }
+    },
+    "1 app con error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 app with an error"
+          }
+        }
+      }
+    },
+    "1 app perdió el permiso al actualizarse" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 app lost permission when it updated"
+          }
+        }
+      }
+    },
+    "1 app personalizada sin permiso" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 customized app without permission"
+          }
+        }
+      }
+    },
+    "1 app tiene el permiso sin usarlo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 app has the permission without using it"
+          }
+        }
+      }
+    },
+    "Abre Iconos y pulsa Permitir cambios." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Iconos and click Allow Changes."
+          }
+        }
+      }
+    },
+    "Abrir Aplicaciones" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Applications"
+          }
+        }
+      }
+    },
+    "Abrir Gestión de apps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open App Management"
+          }
+        }
+      }
+    },
+    "Abrir Terminal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Terminal"
+          }
+        }
+      }
+    },
+    "Abrir la guía…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open the Guide…"
+          }
+        }
+      }
+    },
+    "Abriste Iconos sin moverla de donde la descargaste y macOS la corre desde una copia temporal: el cambio automático dejaría de funcionar. Cierra Iconos, arrástrala a Aplicaciones en Finder y ábrela desde allí." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You opened Iconos without moving it from where you downloaded it, so macOS runs it from a temporary copy and Automatic Switching would stop working. Quit Iconos, drag it to Applications in Finder and open it from there."
+          }
+        }
+      }
+    },
+    "Acerca de" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        }
+      }
+    },
+    "Activa Iconos Agente en Privacidad y seguridad > Gestión de apps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turn on Iconos Agente in Privacy & Security > App Management"
+          }
+        }
+      }
+    },
+    "Activa Iconos Agente en Privacidad y seguridad > Gestión de apps. Hasta entonces no se cambia ningún icono solo." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turn on Iconos Agente in Privacy & Security > App Management. Until then, no icon changes on its own."
+          }
+        }
+      }
+    },
+    "Activar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turn On"
+          }
+        }
+      }
+    },
+    "Activar el agente" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turn On the Agent"
+          }
+        }
+      }
+    },
+    "Activar el cambio automático" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turn On Automatic Switching"
+          }
+        }
+      }
+    },
+    "Activo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "On"
+          }
+        }
+      }
+    },
+    "Actualizar el Dock al cambiar un icono" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refresh the Dock when an icon changes"
+          }
+        }
+      }
+    },
+    "Además de Aplicaciones y la de tu usuario." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In addition to Applications and your user's Applications folder."
+          }
+        }
+      }
+    },
+    "Agregar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        }
+      }
+    },
+    "Agregar carpeta…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Folder…"
+          }
+        }
+      }
+    },
+    "Ahora está en %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It's now in %@."
+          }
+        }
+      }
+    },
+    "Ahora hay %lld sin permiso." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Right now %lld have no permission."
+          }
+        }
+      }
+    },
+    "Ahora hay 1 sin permiso." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Right now 1 has no permission."
+          }
+        }
+      }
+    },
+    "Ahora no hay ninguna sin permiso." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Right now none are missing permission."
+          }
+        }
+      }
+    },
+    "Ajustes de Iconos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos Settings"
+          }
+        }
+      }
+    },
+    "Al volver aquí, el cambio automático les pone el icono otra vez." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When you come back, Automatic Switching sets their icons again."
+          }
+        }
+      }
+    },
+    "Al volver aquí, pulsa Aplicar." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When you come back, click Apply."
+          }
+        }
+      }
+    },
+    "Apagado" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Off"
+          }
+        }
+      }
+    },
+    "Apagar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turn Off"
+          }
+        }
+      }
+    },
+    "Apariencia" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appearance"
+          }
+        }
+      }
+    },
+    "Aplicado · Automático · claro ahora" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applied · Automatic · light now"
+          }
+        }
+      }
+    },
+    "Aplicado · Automático · oscuro ahora" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applied · Automatic · dark now"
+          }
+        }
+      }
+    },
+    "Aplicado · Siempre claro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applied · Always Light"
+          }
+        }
+      }
+    },
+    "Aplicado · Siempre oscuro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applied · Always Dark"
+          }
+        }
+      }
+    },
+    "Aplicar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply"
+          }
+        }
+      }
+    },
+    "Aplicar (⌘S)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply (⌘S)"
+          }
+        }
+      }
+    },
+    "Aplicar a todas" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply to All"
+          }
+        }
+      }
+    },
+    "App del sistema, no se puede cambiar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System app, can't be changed"
+          }
+        }
+      }
+    },
+    "App del sistema: no se puede cambiar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System app: can't be changed"
+          }
+        }
+      }
+    },
+    "Apps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apps"
+          }
+        }
+      }
+    },
+    "Apps de root" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Root-Owned Apps"
+          }
+        }
+      }
+    },
+    "Apps de root a las que Iconos dio permiso y que ya no personaliza." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Root-owned apps that Iconos gave permission to and no longer customizes."
+          }
+        }
+      }
+    },
+    "Apps elegidas" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selected Apps"
+          }
+        }
+      }
+    },
+    "Apps importadas: %lld. No se pudo completar la importación:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apps imported: %lld. The import could not be completed:"
+          }
+        }
+      }
+    },
+    "Apunta a una copia de Iconos que se movió o se recompiló. Reparar lo deja con esta." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It points to a copy of Iconos that was moved or rebuilt. Repair switches it to this one."
+          }
+        }
+      }
+    },
+    "Arrancando…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starting…"
+          }
+        }
+      }
+    },
+    "Arreglar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fix"
+          }
+        }
+      }
+    },
+    "Automático" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatic"
+          }
+        }
+      }
+    },
+    "Aún no se sabe" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not known yet"
+          }
+        }
+      }
+    },
+    "Bloqueada por su fabricante" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locked by its developer"
+          }
+        }
+      }
+    },
+    "Bloqueada por su fabricante, no se puede cambiar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locked by its developer, can't be changed"
+          }
+        }
+      }
+    },
+    "Bloqueada por su fabricante: no se puede cambiar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locked by its developer: can't be changed"
+          }
+        }
+      }
+    },
+    "Buscar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        }
+      }
+    },
+    "Cambia los iconos con el modo claro u oscuro y los vuelve a poner cuando una app se actualiza." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switches icons with Light or Dark mode and sets them again when an app updates."
+          }
+        }
+      }
+    },
+    "Cambia los iconos con el modo claro u oscuro y los vuelve a poner cuando una app se actualiza. Las apps de root necesitan el permiso otra vez si la actualización reemplaza la app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switches icons with Light or Dark mode and sets them again when an app updates. Root-owned apps need the permission again if the update replaces the app."
+          }
+        }
+      }
+    },
+    "Cambio automático" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatic Switching"
+          }
+        }
+      }
+    },
+    "Cambio automático activo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatic Switching is on"
+          }
+        }
+      }
+    },
+    "Cambio automático apagado" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatic Switching is off"
+          }
+        }
+      }
+    },
+    "Cambios sin aplicar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unapplied changes"
+          }
+        }
+      }
+    },
+    "Cambió su icono y el logo nuevo no salió bien: se dejó el anterior." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Its icon changed and the new logo didn't come out right, so the previous one was kept."
+          }
+        }
+      }
+    },
+    "Cancelar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "Carpetas de apps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Folders"
+          }
+        }
+      }
+    },
+    "Cerrar Iconos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quit Iconos"
+          }
+        }
+      }
+    },
+    "Clara…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light…"
+          }
+        }
+      }
+    },
+    "Claro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light"
+          }
+        }
+      }
+    },
+    "Comando que corre Terminal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Command that Terminal runs"
+          }
+        }
+      }
+    },
+    "Comparar con el icono original" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compare with the original icon"
+          }
+        }
+      }
+    },
+    "Compilada sin .app (swift build): este paso no aplica." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Built without an .app (swift build): this step doesn't apply."
+          }
+        }
+      }
+    },
+    "Comprobar otra vez" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check Again"
+          }
+        }
+      }
+    },
+    "Con icono de Iconos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With an Iconos icon"
+          }
+        }
+      }
+    },
+    "Con modo oscuro propio" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With Its Own Dark Mode"
+          }
+        }
+      }
+    },
+    "Con otro icono personalizado" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With another custom icon"
+          }
+        }
+      }
+    },
+    "Confianza" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confidence"
+          }
+        }
+      }
+    },
+    "Configuración" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "Contents/Info.plist no describe una aplicación (APPL o AAPL)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contents/Info.plist does not describe an application (APPL or AAPL)."
+          }
+        }
+      }
+    },
+    "Contents/Info.plist no describe una aplicación." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contents/Info.plist does not describe an application."
+          }
+        }
+      }
+    },
+    "Copiar a Aplicaciones" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy to Applications"
+          }
+        }
+      }
+    },
+    "Código fuente" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Source Code"
+          }
+        }
+      }
+    },
+    "Cómo salió" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Method"
+          }
+        }
+      }
+    },
+    "Deja el Mac como antes de Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leaves the Mac as it was before Iconos."
+          }
+        }
+      }
+    },
+    "Dejar de buscar apps en esta carpeta" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stop looking for apps in this folder"
+          }
+        }
+      }
+    },
+    "Descartar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discard"
+          }
+        }
+      }
+    },
+    "Descartar cambios" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discard Changes"
+          }
+        }
+      }
+    },
+    "Desinstalar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uninstall"
+          }
+        }
+      }
+    },
+    "Desinstalar Iconos…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uninstall Iconos…"
+          }
+        }
+      }
+    },
+    "Después pulsa Reparar en el cambio automático." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Then click Repair under Automatic Switching."
+          }
+        }
+      }
+    },
+    "Dock" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dock"
+          }
+        }
+      }
+    },
+    "El agente dentro de Iconos.app es de otra versión (%@) que la app (%@). Vuelve a descargar Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The agent inside Iconos.app is a different version (%1$@) from the app (%2$@). Download Iconos again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "El agente dentro de Iconos.app es de otra versión (%1$@) que la app (%2$@). Vuelve a descargar Iconos."
+          }
+        }
+      }
+    },
+    "El agente es de otra versión" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The agent is a different version"
+          }
+        }
+      }
+    },
+    "El agente no responde" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The agent isn't responding"
+          }
+        }
+      }
+    },
+    "El agente quedó activo: mantiene los iconos y los cambia con el modo claro u oscuro." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The agent is on: it keeps the icons in place and switches them with Light or Dark mode."
+          }
+        }
+      }
+    },
+    "El agente usa otra copia" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The agent uses another copy"
+          }
+        }
+      }
+    },
+    "El archivo del icono no es regular o tiene enlaces adicionales." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The icon file is not a regular file or has additional links."
+          }
+        }
+      }
+    },
+    "El archivo del icono no es un archivo regular seguro." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The icon file is not a safe regular file."
+          }
+        }
+      }
+    },
+    "El archivo no es regular o es demasiado grande." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file is not a regular file or is too large."
+          }
+        }
+      }
+    },
+    "El archivo no tiene una configuración de Iconos válida." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file doesn't contain valid Iconos settings."
+          }
+        }
+      }
+    },
+    "El atributo del icono cambió durante el respaldo." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The icon attribute changed during the backup."
+          }
+        }
+      }
+    },
+    "El identificador de la app cambió. No se tocó." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app's identifier changed. It was left untouched."
+          }
+        }
+      }
+    },
+    "El logo no salió bien" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The logo didn't come out right"
+          }
+        }
+      }
+    },
+    "El modo automático necesita el cambio automático activo (abajo a la izquierda)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatic mode needs Automatic Switching turned on (bottom left)."
+          }
+        }
+      }
+    },
+    "El registro de permisos %@ está dañado. No se quitará ninguna ACL." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The permission record %@ is damaged. No ACL will be removed."
+          }
+        }
+      }
+    },
+    "El registro de retirada de permisos está dañado." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The permission removal record is damaged."
+          }
+        }
+      }
+    },
+    "El respaldo del icono pertenece a otra app. No se modificó %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The icon backup belongs to another app. %@ was not modified."
+          }
+        }
+      }
+    },
+    "El volumen es de solo lectura; no se puede modificar la app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The volume is read-only; the app can't be modified."
+          }
+        }
+      }
+    },
+    "Elige carpetas con apps. Iconos ya busca en Aplicaciones y en la carpeta Aplicaciones de tu usuario." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose folders with apps. Iconos already looks in Applications and in your user's Applications folder."
+          }
+        }
+      }
+    },
+    "Elige un .zip exportado desde Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a .zip exported from Iconos."
+          }
+        }
+      }
+    },
+    "Elige una app" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose an App"
+          }
+        }
+      }
+    },
+    "En uso" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Use"
+          }
+        }
+      }
+    },
+    "Entendido" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "Es una app del sistema: macOS no deja cambiar su icono." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It's a system app: macOS doesn't allow changing its icon."
+          }
+        }
+      }
+    },
+    "Escribe tu contraseña de Mac (no se ve al escribir) y pulsa Intro." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type your Mac password (it isn't shown as you type) and press Return."
+          }
+        }
+      }
+    },
+    "Escribe tu contraseña en Terminal para quitar el permiso." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type your password in Terminal to remove the permission."
+          }
+        }
+      }
+    },
+    "Escribe tu contraseña en Terminal. %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type your password in Terminal. %@"
+          }
+        }
+      }
+    },
+    "Escribe tu contraseña en Terminal: quita los permisos, borra los datos y mueve Iconos.app a la Papelera." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type your password in Terminal: it removes the permissions, deletes the data and moves Iconos.app to the Trash."
+          }
+        }
+      }
+    },
+    "Esta app es de root" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app is owned by root"
+          }
+        }
+      }
+    },
+    "Esta app no trae icono propio: elige tus imágenes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app has no icon of its own: choose your images"
+          }
+        }
+      }
+    },
+    "Esta app ya tiene su propio modo oscuro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app already has its own dark mode"
+          }
+        }
+      }
+    },
+    "Este permiso ya se retiró. Vuelve a abrir Iconos para revisar el estado." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This permission was already removed. Open Iconos again to check the status."
+          }
+        }
+      }
+    },
+    "Estilo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Style"
+          }
+        }
+      }
+    },
+    "Está cargado pero no da señales. Reparar lo vuelve a cargar; el registro está en ~/Library/Logs/Iconos-agente.log." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It's loaded but not responding. Repair loads it again; the log is in ~/Library/Logs/Iconos-agente.log."
+          }
+        }
+      }
+    },
+    "Explicar antes de abrir Terminal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explain before opening Terminal"
+          }
+        }
+      }
+    },
+    "Exportar configuración…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Export Settings…"
+          }
+        }
+      }
+    },
+    "Falló el guardado y no se pudo deshacer el reemplazo. Respaldo en %@. %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saving failed and the replacement could not be undone. Backup in %1$@. %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Falló el guardado y no se pudo deshacer el reemplazo. Respaldo en %1$@. %2$@"
+          }
+        }
+      }
+    },
+    "Falló sudo: contraseña incorrecta o cuenta sin permisos de administrador. No se cambió ninguna app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sudo failed: wrong password or an account without administrator privileges. No app was changed."
+          }
+        }
+      }
+    },
+    "Falló sudo: la autorización caducó o la cuenta no tiene permisos de administrador." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sudo failed: the authorization expired or the account doesn't have administrator privileges."
+          }
+        }
+      }
+    },
+    "Falta" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missing"
+          }
+        }
+      }
+    },
+    "Falta Gestión de apps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Management missing"
+          }
+        }
+      }
+    },
+    "Falta la app de --elegir" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "--elegir needs an app"
+          }
+        }
+      }
+    },
+    "Falta poner el icono" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Icon not set yet"
+          }
+        }
+      }
+    },
+    "Falta poner el icono: pendiente o sin permiso" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Icon not set yet: pending or without permission"
+          }
+        }
+      }
+    },
+    "Faltan las imágenes propias de esta app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app's custom images are missing."
+          }
+        }
+      }
+    },
+    "Gestión de apps para Iconos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Management for Iconos"
+          }
+        }
+      }
+    },
+    "Gestión de apps para Iconos Agente" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Management for Iconos Agente"
+          }
+        }
+      }
+    },
+    "Guarda los ajustes de Iconos y tus imágenes propias para llevarlos a otro Mac." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save the Iconos settings and your custom images to take them to another Mac."
+          }
+        }
+      }
+    },
+    "Guardar cambios" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save Changes"
+          }
+        }
+      }
+    },
+    "Hay que repararlo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Needs repair"
+          }
+        }
+      }
+    },
+    "Hecho" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
+    "Icono" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Icon"
+          }
+        }
+      }
+    },
+    "Icono claro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Light icon"
+          }
+        }
+      }
+    },
+    "Icono completo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full Icon"
+          }
+        }
+      }
+    },
+    "Icono de baja resolución (%lld px)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Low-resolution icon (%lld px)"
+          }
+        }
+      }
+    },
+    "Icono oscuro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dark icon"
+          }
+        }
+      }
+    },
+    "Iconos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos"
+          }
+        }
+      }
+    },
+    "Iconos añade un permiso (una ACL) solo en la carpeta de la app para poder ponerle el icono; dentro de Contents no cambia nada y la firma de la app sigue intacta. Se puede quitar cuando quieras desde Ajustes; Terminal pide tu contraseña de administrador e Iconos no la ve." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos adds a permission (an ACL) only on the app's folder so it can set the icon; nothing inside Contents changes and the app's signature stays intact. You can remove it at any time in Settings. Terminal asks for your administrator password and Iconos never sees it."
+          }
+        }
+      }
+    },
+    "Iconos deja de cuidarlas y borra sus ajustes e imágenes propias." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos stops looking after them and deletes their settings and custom images."
+          }
+        }
+      }
+    },
+    "Iconos deja de cuidarlas. Puedes conservar tus imágenes propias para usarlas más adelante." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos stops looking after them. You can keep your custom images to use them later."
+          }
+        }
+      }
+    },
+    "Iconos en Aplicaciones" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos in Applications"
+          }
+        }
+      }
+    },
+    "Iconos está en %@, en otro disco. Cópiala a Aplicaciones para que el cambio automático la encuentre siempre: Iconos se copia, se abre desde allí y esta se cierra. La de %@ no se borra; puedes tirarla después." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos is in %1$@, on another disk. Copy it to Applications so Automatic Switching can always find it: Iconos copies itself, opens from there and this copy quits. The one in %2$@ isn't deleted; you can throw it away later."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Iconos está en %1$@, en otro disco. Cópiala a Aplicaciones para que el cambio automático la encuentre siempre: Iconos se copia, se abre desde allí y esta se cierra. La de %2$@ no se borra; puedes tirarla después."
+          }
+        }
+      }
+    },
+    "Iconos está en %@. Muévela a Aplicaciones para que el cambio automático la encuentre siempre: Iconos se mueve, se abre desde allí y esta copia se cierra." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos is in %@. Move it to Applications so Automatic Switching can always find it: Iconos moves itself, opens from there and this copy quits."
+          }
+        }
+      }
+    },
+    "Iconos está en Aplicaciones." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos is in Applications."
+          }
+        }
+      }
+    },
+    "Iconos personalizados" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Custom Icons"
+          }
+        }
+      }
+    },
+    "Iconos quedó desinstalado. Falta mover Iconos.app a la Papelera." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos was uninstalled. Iconos.app still needs to be moved to the Trash."
+          }
+        }
+      }
+    },
+    "Iconos quita el permiso (una ACL) que puso en la carpeta de la app; dentro de Contents no cambia nada. Son apps de root, así que Terminal pide tu contraseña de administrador e Iconos no la ve." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos removes the permission (an ACL) it put on the app's folder; nothing inside Contents changes. These are root-owned apps, so Terminal asks for your administrator password and Iconos never sees it."
+          }
+        }
+      }
+    },
+    "Iconos saca el logo de su ficha y lo pone sobre una ficha clara u oscura con la forma de macOS. Elige varias con Cmd o Mayúsculas para cambiarlas juntas." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos takes the logo off its background and places it on a light or dark tile with the macOS shape. Select several with Command or Shift to change them together."
+          }
+        }
+      }
+    },
+    "Iconos se desinstaló y se movió a la Papelera. Puedes cerrar esta ventana." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos was uninstalled and moved to the Trash. You can close this window."
+          }
+        }
+      }
+    },
+    "Iconos sigue instalado con sus ajustes: puedes volver a intentarlo." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos is still installed with its settings: you can try again."
+          }
+        }
+      }
+    },
+    "Iconos ya está en Aplicaciones, pero no se pudo abrir (%@). Ábrela desde allí." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos is now in Applications, but it couldn't be opened (%@). Open it from there."
+          }
+        }
+      }
+    },
+    "Iconos: deja poner el icono en apps de root (solo en la carpeta de la app, no dentro)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos: allows setting the icon on root-owned apps (only on the app's folder, not inside it)"
+          }
+        }
+      }
+    },
+    "Iconos: permiso para cambiar el icono de %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos: permission to change the icon of %@"
+          }
+        }
+      }
+    },
+    "Iconos: quita el permiso que puso en apps de root" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos: removes the permission it put on root-owned apps"
+          }
+        }
+      }
+    },
+    "Iconos: quitar el permiso de cambiar el icono de %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos: remove the permission to change the icon of %@"
+          }
+        }
+      }
+    },
+    "Ignorar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore"
+          }
+        }
+      }
+    },
+    "Imagen cuadrada para la variante clara (idealmente 1024 × 1024)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Square image for the light variant (ideally 1024 × 1024)"
+          }
+        }
+      }
+    },
+    "Imagen cuadrada para la variante oscura (idealmente 1024 × 1024)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Square image for the dark variant (ideally 1024 × 1024)"
+          }
+        }
+      }
+    },
+    "Importar…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import…"
+          }
+        }
+      }
+    },
+    "Imágenes propias" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Custom Images"
+          }
+        }
+      }
+    },
+    "Info.plist ya no describe una app. No se tocó." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info.plist no longer describes an app. It was left untouched."
+          }
+        }
+      }
+    },
+    "La app cambió durante la migración de permisos: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app changed during the permission migration: %@"
+          }
+        }
+      }
+    },
+    "La app cambió mientras se ponía el icono." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app changed while the icon was being set."
+          }
+        }
+      }
+    },
+    "La app cambió mientras se restauraba el icono." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app changed while the icon was being restored."
+          }
+        }
+      }
+    },
+    "La app cambió o contiene enlaces. No se tocó." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app changed or contains links. It was left untouched."
+          }
+        }
+      }
+    },
+    "La app de %@ no coincide: se esperaba %@ y se encontró %@. No se modificó." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app at %1$@ doesn't match: expected %2$@ and found %3$@. It was not modified."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "La app de %1$@ no coincide: se esperaba %2$@ y se encontró %3$@. No se modificó."
+          }
+        }
+      }
+    },
+    "La app de la ruta anterior todavía existe." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app at the previous path still exists."
+          }
+        }
+      }
+    },
+    "La app de la ruta nueva ya tiene su icono en Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app at the new path already has its icon in Iconos."
+          }
+        }
+      }
+    },
+    "La app es de root: pulsa Permitir cambios (pide tu contraseña en Terminal una vez)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app is owned by root: click Allow Changes (it asks for your password in Terminal once)."
+          }
+        }
+      }
+    },
+    "La app está en un volumen de solo lectura." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app is on a read-only volume."
+          }
+        }
+      }
+    },
+    "La app está protegida por macOS o por su fabricante." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app is protected by macOS or by its developer."
+          }
+        }
+      }
+    },
+    "La app no está en su sitio (quizá se está actualizando)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app isn't where it should be (it may be updating)."
+          }
+        }
+      }
+    },
+    "La app no tiene un Contents/Info.plist válido." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app doesn't have a valid Contents/Info.plist."
+          }
+        }
+      }
+    },
+    "La app no tiene un directorio Contents válido." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app doesn't have a valid Contents folder."
+          }
+        }
+      }
+    },
+    "La app no trae icono propio" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app has no icon of its own"
+          }
+        }
+      }
+    },
+    "La app sigue con el permiso que le dio Iconos; ya no hace falta" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app still has the permission Iconos gave it; it's no longer needed"
+          }
+        }
+      }
+    },
+    "La app ya no está en la lista de Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app is no longer in the Iconos list."
+          }
+        }
+      }
+    },
+    "La carpeta no existe ahora (quizá es de un disco que no está conectado)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The folder doesn't exist right now (it may be on a disk that isn't connected)"
+          }
+        }
+      }
+    },
+    "La configuración está dañada o no se puede leer. Revisa su copia antes de cambiar apps." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The settings file is damaged or can't be read. Check its copy before changing apps."
+          }
+        }
+      }
+    },
+    "La configuración está dañada o no se puede leer; no se importó ninguna app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The settings file is damaged or can't be read; no app was imported."
+          }
+        }
+      }
+    },
+    "La configuración está dañada o no se puede leer; no se restauró ninguna app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The settings file is damaged or can't be read; no app was restored."
+          }
+        }
+      }
+    },
+    "La configuración está dañada; no se reubicó la app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The settings file is damaged; the app was not relocated."
+          }
+        }
+      }
+    },
+    "La configuración está dañada; no se sobrescribió." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The settings file is damaged; it was not overwritten."
+          }
+        }
+      }
+    },
+    "La configuración está dañada; se conserva el registro de permisos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The settings file is damaged; the permission record is kept."
+          }
+        }
+      }
+    },
+    "La configuración está dañada; se conservan los permisos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The settings file is damaged; the permissions are kept."
+          }
+        }
+      }
+    },
+    "La configuración está dañada; se guardó una copia y no se borrará nada hasta que la revises" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The settings file is damaged; a copy was saved and nothing will be deleted until you check it"
+          }
+        }
+      }
+    },
+    "La ruta no es un bundle .app válido: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The path is not a valid .app bundle: %@"
+          }
+        }
+      }
+    },
+    "La ruta nueva tiene datos de identidad desconocida; no se sobrescribieron." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The new path has data of unknown identity; it was not overwritten."
+          }
+        }
+      }
+    },
+    "Las apps personalizadas tienen permiso" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The customized apps have permission"
+          }
+        }
+      }
+    },
+    "Las marcas e iconos pertenecen a sus dueños; Iconos no está afiliado a ellos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trademarks and icons belong to their owners; Iconos is not affiliated with them."
+          }
+        }
+      }
+    },
+    "Las que usan imágenes propias las conservan. El tamaño y lo demás de cada una no cambia." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apps that use custom images keep them. Each app's size and other settings don't change."
+          }
+        }
+      }
+    },
+    "Listo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
+    "Listo." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done."
+          }
+        }
+      }
+    },
+    "Listo. El Dock se reinicia un momento para mostrarlo." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done. The Dock restarts for a moment to show it."
+          }
+        }
+      }
+    },
+    "Listo. Iconos ya no puede cambiar estas apps. Puedes cerrar esta ventana." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done. Iconos can no longer change these apps. You can close this window."
+          }
+        }
+      }
+    },
+    "Listo. Vuelve a Iconos y pulsa Aplicar. Puedes cerrar esta ventana." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done. Go back to Iconos and click Apply. You can close this window."
+          }
+        }
+      }
+    },
+    "Listo: %lld apps." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done: %lld apps."
+          }
+        }
+      }
+    },
+    "Listo: 1 app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done: 1 app."
+          }
+        }
+      }
+    },
+    "Logo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logo"
+          }
+        }
+      }
+    },
+    "Logo fiable" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reliable logo"
+          }
+        }
+      }
+    },
+    "Mantenimiento" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maintenance"
+          }
+        }
+      }
+    },
+    "Mostrar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show"
+          }
+        }
+      }
+    },
+    "Mostrar apps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show apps"
+          }
+        }
+      }
+    },
+    "Mostrar en Finder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show in Finder"
+          }
+        }
+      }
+    },
+    "Mover a Aplicaciones" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move to Applications"
+          }
+        }
+      }
+    },
+    "Mover ajustes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move Settings"
+          }
+        }
+      }
+    },
+    "Muestra qué hace el comando y por qué pide tu contraseña." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shows what the command does and why it asks for your password."
+          }
+        }
+      }
+    },
+    "Mueve Iconos a Aplicaciones antes de activar el agente: esta copia %@ y el agente dejaría de funcionar." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move Iconos to Applications before turning on the agent: this copy %@, and the agent would stop working."
+          }
+        }
+      }
+    },
+    "Nada coincide con la búsqueda." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nothing matches the search."
+          }
+        }
+      }
+    },
+    "Necesita permiso" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Needs permission"
+          }
+        }
+      }
+    },
+    "Ninguna app" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Apps"
+          }
+        }
+      }
+    },
+    "Ninguna app en «%@»." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No apps in “%@”."
+          }
+        }
+      }
+    },
+    "Ningún permiso de más" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No extra permissions"
+          }
+        }
+      }
+    },
+    "No" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Never"
+          }
+        }
+      }
+    },
+    "No está" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Missing"
+          }
+        }
+      }
+    },
+    "No hay nada que exportar todavía." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There's nothing to export yet."
+          }
+        }
+      }
+    },
+    "No responde" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not responding"
+          }
+        }
+      }
+    },
+    "No se borró ningún dato ni se movió Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No data was deleted and Iconos was not moved."
+          }
+        }
+      }
+    },
+    "No se completaron todos los cambios. Revisa el motivo indicado para cada app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not all changes were completed. Check the reason shown for each app."
+          }
+        }
+      }
+    },
+    "No se desinstaló nada; se puede volver a intentar." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nothing was uninstalled; you can try again."
+          }
+        }
+      }
+    },
+    "No se encontró Iconos.app. No se borró ningún dato." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos.app was not found. No data was deleted."
+          }
+        }
+      }
+    },
+    "No se encontró Terminal." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminal was not found."
+          }
+        }
+      }
+    },
+    "No se encontró el agente dentro de Iconos.app. Vuelve a descargar Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The agent was not found inside Iconos.app. Download Iconos again."
+          }
+        }
+      }
+    },
+    "No se preparó el registro de retirada. Vuelve a abrir Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The removal record wasn't prepared. Open Iconos again."
+          }
+        }
+      }
+    },
+    "No se pudieron borrar los datos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The data could not be deleted."
+          }
+        }
+      }
+    },
+    "No se pudieron borrar los registros." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The logs could not be deleted."
+          }
+        }
+      }
+    },
+    "No se pudieron borrar los registros: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The logs could not be deleted: %@"
+          }
+        }
+      }
+    },
+    "No se pudieron reemplazar los iconos: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The icons could not be replaced: %@"
+          }
+        }
+      }
+    },
+    "No se pudo abrir el archivo (¿es un .zip exportado por Iconos?)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The file could not be opened (is it a .zip exported by Iconos?)."
+          }
+        }
+      }
+    },
+    "No se pudo abrir la Papelera." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Trash could not be opened."
+          }
+        }
+      }
+    },
+    "No se pudo bloquear el archivo de datos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The data file could not be locked."
+          }
+        }
+      }
+    },
+    "No se pudo borrar la carpeta de datos: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The data folder could not be deleted: %@"
+          }
+        }
+      }
+    },
+    "No se pudo cambiar el permiso:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The permission could not be changed:"
+          }
+        }
+      }
+    },
+    "No se pudo copiar Iconos a Aplicaciones (%@). Arrástrala tú en Finder." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos could not be copied to Applications (%@). Drag it there yourself in Finder."
+          }
+        }
+      }
+    },
+    "No se pudo crear %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not create %@"
+          }
+        }
+      }
+    },
+    "No se pudo deshacer la reubicación. Datos conservados en %@, %@ o %@: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The relocation could not be undone. Data kept in %1$@, %2$@ or %3$@: %4$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No se pudo deshacer la reubicación. Datos conservados en %1$@, %2$@ o %3$@: %4$@"
+          }
+        }
+      }
+    },
+    "No se pudo desinstalar Iconos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos Could Not Be Uninstalled"
+          }
+        }
+      }
+    },
+    "No se pudo dibujar la variante %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not draw the %@ variant"
+          }
+        }
+      }
+    },
+    "No se pudo dibujar la variante %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not draw the %@ variant."
+          }
+        }
+      }
+    },
+    "No se pudo escalar el icono" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not scale the icon"
+          }
+        }
+      }
+    },
+    "No se pudo escribir %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not write %@"
+          }
+        }
+      }
+    },
+    "No se pudo escribir el icono (%@)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not write the icon (%@)."
+          }
+        }
+      }
+    },
+    "No se pudo guardar %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not save %@"
+          }
+        }
+      }
+    },
+    "No se pudo guardar la imagen clara" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not save the light image"
+          }
+        }
+      }
+    },
+    "No se pudo guardar la imagen oscura" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not save the dark image"
+          }
+        }
+      }
+    },
+    "No se pudo importar %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not import %@."
+          }
+        }
+      }
+    },
+    "No se pudo importar la imagen %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not import the %@ image."
+          }
+        }
+      }
+    },
+    "No se pudo leer %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not read %@"
+          }
+        }
+      }
+    },
+    "No se pudo leer el archivo completo." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not read the whole file."
+          }
+        }
+      }
+    },
+    "No se pudo leer la imagen." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not read the image."
+          }
+        }
+      }
+    },
+    "No se pudo mover Iconos a Aplicaciones (%@). Arrástrala tú en Finder." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos could not be moved to Applications (%@). Drag it there yourself in Finder."
+          }
+        }
+      }
+    },
+    "No se pudo mover Iconos a la Papelera (%@). Arrástrala tú." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos could not be moved to the Trash (%@). Drag it there yourself."
+          }
+        }
+      }
+    },
+    "No se pudo mover Iconos a la Papelera." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos could not be moved to the Trash."
+          }
+        }
+      }
+    },
+    "No se pudo preparar el comando." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The command could not be prepared."
+          }
+        }
+      }
+    },
+    "No se pudo registrar la retirada del permiso." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The permission removal could not be recorded."
+          }
+        }
+      }
+    },
+    "No se pudo verificar el permiso de %@; se conserva su registro." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The permission of %@ could not be verified; its record is kept."
+          }
+        }
+      }
+    },
+    "No se puede abrir la app sin seguir enlaces: %@. %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app can't be opened without following links: %1$@. %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No se puede abrir la app sin seguir enlaces: %1$@. %2$@"
+          }
+        }
+      }
+    },
+    "No se pueden cambiar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Can't Be Changed"
+          }
+        }
+      }
+    },
+    "No volver a mostrar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't show again"
+          }
+        }
+      }
+    },
+    "Opcional" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optional"
+          }
+        }
+      }
+    },
+    "Opcional: Gestión de apps para Terminal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optional: App Management for Terminal"
+          }
+        }
+      }
+    },
+    "Opción desconocida: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown option: %@"
+          }
+        }
+      }
+    },
+    "Original" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Original"
+          }
+        }
+      }
+    },
+    "Oscura…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dark…"
+          }
+        }
+      }
+    },
+    "Oscuro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dark"
+          }
+        }
+      }
+    },
+    "Otras apps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Other Apps"
+          }
+        }
+      }
+    },
+    "Para usar un icono hecho a mano en lugar del generado (1024 × 1024)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To use a handmade icon instead of the generated one (1024 × 1024)."
+          }
+        }
+      }
+    },
+    "Perdió el permiso (quizá al actualizarse): pide tu contraseña otra vez" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lost its permission (maybe when it updated): asks for your password again"
+          }
+        }
+      }
+    },
+    "Permiso de escritura denegado por el propietario o la ACL de la app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write permission denied by the app's owner or ACL."
+          }
+        }
+      }
+    },
+    "Permisos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permissions"
+          }
+        }
+      }
+    },
+    "Permitir cambios…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allow Changes…"
+          }
+        }
+      }
+    },
+    "Permitir todas…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allow All…"
+          }
+        }
+      }
+    },
+    "Personalizada, perdió el permiso" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Customized, lost its permission"
+          }
+        }
+      }
+    },
+    "Personalizadas" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Customized"
+          }
+        }
+      }
+    },
+    "Pide tu contraseña una vez para poder cambiarla" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asks for your password once so it can be changed"
+          }
+        }
+      }
+    },
+    "Por qué pide tu contraseña" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Why Your Password Is Needed"
+          }
+        }
+      }
+    },
+    "Primeros pasos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getting Started"
+          }
+        }
+      }
+    },
+    "Primeros pasos con Iconos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getting Started with Iconos"
+          }
+        }
+      }
+    },
+    "Puedes reintentar abriendo Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can try again by opening Iconos."
+          }
+        }
+      }
+    },
+    "Quitar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove"
+          }
+        }
+      }
+    },
+    "Quitar %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove %@"
+          }
+        }
+      }
+    },
+    "Quitar el blanco" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove White"
+          }
+        }
+      }
+    },
+    "Quitar el icono personalizado y volver al de la app" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove the custom icon and go back to the app's own icon"
+          }
+        }
+      }
+    },
+    "Quitar permisos que sobran…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove Unneeded Permissions…"
+          }
+        }
+      }
+    },
+    "Quitar también el permiso" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Also Remove the Permission"
+          }
+        }
+      }
+    },
+    "Qué permisos necesita Iconos y si ya los tiene." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Which permissions Iconos needs and whether it already has them."
+          }
+        }
+      }
+    },
+    "Reparar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repair"
+          }
+        }
+      }
+    },
+    "Reparar el agente" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repair the Agent"
+          }
+        }
+      }
+    },
+    "Restaurar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore"
+          }
+        }
+      }
+    },
+    "Restaurar original" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore Original Icon"
+          }
+        }
+      }
+    },
+    "Restaurar todas las elegidas" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore All Selected"
+          }
+        }
+      }
+    },
+    "Restaurar todas…" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore All…"
+          }
+        }
+      }
+    },
+    "Restaurar y borrar todo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore and Delete Everything"
+          }
+        }
+      }
+    },
+    "Restaurar y conservar imágenes propias" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore and Keep Custom Images"
+          }
+        }
+      }
+    },
+    "Resultado" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Result"
+          }
+        }
+      }
+    },
+    "Revisa el logo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check the logo"
+          }
+        }
+      }
+    },
+    "Revisa el logo de %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check the logo of %@"
+          }
+        }
+      }
+    },
+    "Revisar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review"
+          }
+        }
+      }
+    },
+    "Se abre Terminal y pide tu contraseña una sola vez para todas. Terminal necesita el permiso Gestión de apps." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminal opens and asks for your password once for all of them. Terminal needs the App Management permission."
+          }
+        }
+      }
+    },
+    "Se abre Terminal y pide tu contraseña. Solo se da permiso en la carpeta de la app, no dentro de ella. Si una actualización reemplaza la app, hay que darlo otra vez. Si macOS lo bloquea, activa Terminal en Gestión de apps." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminal opens and asks for your password. Permission is given only on the app's folder, not inside it. If an update replaces the app, it has to be given again. If macOS blocks it, turn on Terminal in App Management."
+          }
+        }
+      }
+    },
+    "Se guardó la configuración en %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The settings were saved to %@."
+          }
+        }
+      }
+    },
+    "Se importaron %@. Activa el cambio automático para que se les ponga el icono." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imported %@. Turn on Automatic Switching so their icons get set."
+          }
+        }
+      }
+    },
+    "Se importaron %@. El cambio automático les pone el icono." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imported %@. Automatic Switching sets their icons."
+          }
+        }
+      }
+    },
+    "Se movieron los ajustes de %@ a su nueva ubicación." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The settings of %@ were moved to its new location."
+          }
+        }
+      }
+    },
+    "Se pueden cambiar %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld can be changed"
+          }
+        }
+      }
+    },
+    "Se pueden cambiar todas" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All can be changed"
+          }
+        }
+      }
+    },
+    "Se restaura el icono original de todas las apps, se apaga el cambio automático, se abre Terminal para quitar los permisos que Iconos dio a las apps de root (pide tu contraseña), se borran los ajustes y las imágenes propias, e Iconos se mueve a la Papelera y se cierra." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The original icon of every app is restored, Automatic Switching is turned off, Terminal opens to remove the permissions Iconos gave to root-owned apps (it asks for your password), the settings and custom images are deleted, and Iconos moves to the Trash and quits."
+          }
+        }
+      }
+    },
+    "Se restauraron %lld apps." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restored %lld apps."
+          }
+        }
+      }
+    },
+    "Se restauró 1 app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restored 1 app."
+          }
+        }
+      }
+    },
+    "Se restauró el icono original." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The original icon was restored."
+          }
+        }
+      }
+    },
+    "Se sabrá la primera vez que apliques un icono. Si macOS lo pide o lo frena, activa Iconos en Privacidad y seguridad > Gestión de apps." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You'll know the first time you apply an icon. If macOS asks or blocks it, turn on Iconos in Privacy & Security > App Management."
+          }
+        }
+      }
+    },
+    "Se sabrá la primera vez que el agente cambie un icono (por ejemplo al pasar a modo oscuro). Es otro permiso, aparte del de Iconos, y se llama Iconos Agente." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You'll know the first time the agent changes an icon (for example when switching to Dark mode). It's a separate permission from the one for Iconos, and it's called Iconos Agente."
+          }
+        }
+      }
+    },
+    "Siempre" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Always"
+          }
+        }
+      }
+    },
+    "Siempre claro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Always Light"
+          }
+        }
+      }
+    },
+    "Siempre oscuro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Always Dark"
+          }
+        }
+      }
+    },
+    "Sigue corriendo el agente de la versión anterior de Iconos. Reparar lo vuelve a cargar con esta." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The agent from the previous version of Iconos is still running. Repair loads it again with this one."
+          }
+        }
+      }
+    },
+    "Simulación del Dock" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dock preview"
+          }
+        }
+      }
+    },
+    "Sin Info.plist" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Info.plist"
+          }
+        }
+      }
+    },
+    "Sin bundle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No bundle"
+          }
+        }
+      }
+    },
+    "Sin permiso" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Permission"
+          }
+        }
+      }
+    },
+    "Sin personalizar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Customized"
+          }
+        }
+      }
+    },
+    "Solo Aplicaciones y la carpeta Aplicaciones de tu usuario." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only Applications and your user's Applications folder."
+          }
+        }
+      }
+    },
+    "Solo el logo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logo Only"
+          }
+        }
+      }
+    },
+    "Solo en oscuro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dark Only"
+          }
+        }
+      }
+    },
+    "Solo para apps instaladas con un .pkg o desde App Store, que son de root. Iconos les da permiso con un comando en Terminal (pide tu contraseña) y macOS exige que Terminal tenga Gestión de apps. %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only for apps installed with a .pkg or from the App Store, which are owned by root. Iconos gives them permission with a command in Terminal (it asks for your password), and macOS requires Terminal to have App Management. %@"
+          }
+        }
+      }
+    },
+    "Su fabricante trajo un icono nuevo e Iconos sacó el logo otra vez." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Its developer shipped a new icon and Iconos extracted the logo again."
+          }
+        }
+      }
+    },
+    "Su icono ya tiene modo oscuro: macOS lo cambia solo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Its icon already has a dark mode: macOS switches it on its own"
+          }
+        }
+      }
+    },
+    "Tamaño" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Size"
+          }
+        }
+      }
+    },
+    "Tamaño del logo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logo size"
+          }
+        }
+      }
+    },
+    "Tiene la marca de archivo inmutable para que nadie la modifique, ni siquiera root. Quitarla puede romper la protección de la app, así que Iconos no la toca." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It has the immutable file flag so nobody can modify it, not even root. Removing it could break the app's protection, so Iconos leaves it alone."
+          }
+        }
+      }
+    },
+    "Todas" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All"
+          }
+        }
+      }
+    },
+    "Un proceso pequeño que cambia los iconos con el modo claro u oscuro y los vuelve a poner cuando una app se actualiza." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A small process that switches icons with Light or Dark mode and sets them again when an app updates."
+          }
+        }
+      }
+    },
+    "Usar las imágenes propias" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Custom Images"
+          }
+        }
+      }
+    },
+    "Uso: Iconos [opción]\n  (sin opciones)                     abre la ventana\n  --elegir <app>                     abre la ventana con esa app elegida\n  --bienvenida                       abre la ventana con la guía de primeros pasos\n  --reparar-agente                   abre la ventana y deja el agente con esta copia\n  --oscuro | --claro                 fuerza la apariencia de la ventana\n  --previa <app> <carpeta> [--quitar-blanco]\n  --usar-propias <app> <claro.png> <oscuro.png>\n  --diagnostico <app>\n  --restaurar <app>\n  --restaurar-todas [--conservar-propias]\n  --exportar <zip> | --importar <zip>\n  --estado\n  --instalar-agente\n  --desinstalar\n  --guion-permiso <app>...\n" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usage: Iconos [option]\n  (no options)                       opens the window\n  --elegir <app>                     opens the window with that app selected\n  --bienvenida                       opens the window with the Getting Started guide\n  --reparar-agente                   opens the window and points the agent to this copy\n  --oscuro | --claro                 forces the window's appearance (dark | light)\n  --previa <app> <folder> [--quitar-blanco]\n  --usar-propias <app> <light.png> <dark.png>\n  --diagnostico <app>\n  --restaurar <app>\n  --restaurar-todas [--conservar-propias]\n  --exportar <zip> | --importar <zip>\n  --estado\n  --instalar-agente\n  --desinstalar\n  --guion-permiso <app>...\n"
+          }
+        }
+      }
+    },
+    "Ver original" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Original"
+          }
+        }
+      }
+    },
+    "Versión" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        }
+      }
+    },
+    "Volver a buscar apps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for Apps Again"
+          }
+        }
+      }
+    },
+    "Volver a poner" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reapply"
+          }
+        }
+      }
+    },
+    "Ya hay otra copia de Iconos en Aplicaciones. Ciérrala, muévela a la Papelera y vuelve a intentarlo." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There's already another copy of Iconos in Applications. Quit it, move it to the Trash and try again."
+          }
+        }
+      }
+    },
+    "alta" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "high"
+          }
+        }
+      }
+    },
+    "apariencia: %@ (oscuro: %@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "appearance: %1$@ (dark: %2$@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "apariencia: %1$@ (oscuro: %2$@)"
+          }
+        }
+      }
+    },
+    "apps gestionadas: %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "managed apps: %lld"
+          }
+        }
+      }
+    },
+    "baja" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "low"
+          }
+        }
+      }
+    },
+    "capas del icono" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "icon layers"
+          }
+        }
+      }
+    },
+    "claro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "light"
+          }
+        }
+      }
+    },
+    "confianza: %@ (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "confidence: %1$@ (%2$@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "confianza: %1$@ (%2$@)"
+          }
+        }
+      }
+    },
+    "desconocida" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "unknown"
+          }
+        }
+      }
+    },
+    "dibujo con marco cerrado" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "drawing with a closed frame"
+          }
+        }
+      }
+    },
+    "dibujo de plantilla sin ficha" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "template drawing without a tile"
+          }
+        }
+      }
+    },
+    "ditto falló (%d)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ditto failed (%d)."
+          }
+        }
+      }
+    },
+    "el icono no tiene contenido opaco" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the icon has no opaque content"
+          }
+        }
+      }
+    },
+    "el logo ocupa casi todo el icono" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the logo fills almost the whole icon"
+          }
+        }
+      }
+    },
+    "emblema circular unido; se conserva el aro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "joined circular emblem; the ring is kept"
+          }
+        }
+      }
+    },
+    "en desarrollo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "in development"
+          }
+        }
+      }
+    },
+    "es la compilada en build/" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "is the one built in build/"
+          }
+        }
+      }
+    },
+    "está en un disco de solo lectura (una imagen de disco)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "is on a read-only disk (a disk image)"
+          }
+        }
+      }
+    },
+    "está en una carpeta temporal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "is in a temporary folder"
+          }
+        }
+      }
+    },
+    "exportado: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "exported: %@"
+          }
+        }
+      }
+    },
+    "extracción por píxeles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pixel extraction"
+          }
+        }
+      }
+    },
+    "extracción vacía; se conserva el arte" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "empty extraction; the artwork is kept"
+          }
+        }
+      }
+    },
+    "ficha demasiado pequeña" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tile too small"
+          }
+        }
+      }
+    },
+    "ficha separada con confianza" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tile separated with confidence"
+          }
+        }
+      }
+    },
+    "fondo circular anidado" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "nested circular background"
+          }
+        }
+      }
+    },
+    "fondo no separable con confianza" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "background can't be separated with confidence"
+          }
+        }
+      }
+    },
+    "fuente: %lld px" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "source: %lld px"
+          }
+        }
+      }
+    },
+    "glifo de marca con votación dudosa" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "brand glyph with an uncertain vote"
+          }
+        }
+      }
+    },
+    "icono completo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "full icon"
+          }
+        }
+      }
+    },
+    "iconutil fallo (%d)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iconutil failed (%d)"
+          }
+        }
+      }
+    },
+    "imágenes propias" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "custom images"
+          }
+        }
+      }
+    },
+    "launchctl no pudo cargar el agente" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "launchctl could not load the agent"
+          }
+        }
+      }
+    },
+    "listo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "done"
+          }
+        }
+      }
+    },
+    "logo cerca del borde; puede quedar parte del aro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "logo close to the edge; part of the ring may remain"
+          }
+        }
+      }
+    },
+    "logo separado por capas" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "logo separated by layers"
+          }
+        }
+      }
+    },
+    "macOS bloqueó el cambio. Permite Terminal en Privacidad y seguridad > Gestión de apps." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS blocked the change. Allow Terminal in Privacy & Security > App Management."
+          }
+        }
+      }
+    },
+    "macOS cambia su icono solo. Aplica Iconos únicamente si quieres la ficha blanca y oscura de Iconos en su lugar." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS switches its icon on its own. Apply Iconos only if you want the Iconos white and dark tiles instead."
+          }
+        }
+      }
+    },
+    "macOS frenó a Iconos al cambiar un icono. Activa Iconos en Privacidad y seguridad > Gestión de apps y vuelve a pulsar Aplicar." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS stopped Iconos from changing an icon. Turn on Iconos in Privacy & Security > App Management and click Apply again."
+          }
+        }
+      }
+    },
+    "macOS no deja a Iconos Agente cambiar iconos. Actívalo en Privacidad y seguridad > Gestión de apps; suele aparecer en la lista después de que macOS lo frene por primera vez." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS doesn't let Iconos Agente change icons. Turn it on in Privacy & Security > App Management; it usually appears in the list after macOS blocks it for the first time."
+          }
+        }
+      }
+    },
+    "macOS no deja al agente cambiar iconos" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS doesn't let the agent change icons"
+          }
+        }
+      }
+    },
+    "macOS no deja al agente cambiar iconos: activa Iconos Agente en Privacidad y seguridad > Gestión de apps." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS doesn't let the agent change icons: turn on Iconos Agente in Privacy & Security > App Management."
+          }
+        }
+      }
+    },
+    "macOS no deja refrescar un solo icono del Dock: hay que reiniciarlo y parpadea un segundo. Solo pasa si la app está en el Dock. Apagado, el cambio se ve la próxima vez que el Dock se reinicie." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS can't refresh a single Dock icon: the Dock has to restart and flickers for a second. It only happens if the app is in the Dock. When off, the change shows the next time the Dock restarts."
+          }
+        }
+      }
+    },
+    "macOS no dejó modificar la app. Permite Iconos e Iconos Agente en Privacidad y seguridad > Gestión de apps." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS didn't allow the app to be modified. Allow Iconos and Iconos Agente in Privacy & Security > App Management."
+          }
+        }
+      }
+    },
+    "macOS o su fabricante protegen esta app; no se puede modificar." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS or its developer protects this app; it can't be modified."
+          }
+        }
+      }
+    },
+    "macOS protege las apps instaladas: para cambiar sus iconos, Iconos necesita unos permisos. Cada paso dice si ya está listo." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS protects installed apps: to change their icons, Iconos needs a few permissions. Each step shows whether it's ready."
+          }
+        }
+      }
+    },
+    "macOS ya dejó a Iconos Agente cambiar el icono de una app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS has already let Iconos Agente change an app's icon."
+          }
+        }
+      }
+    },
+    "macOS ya dejó a Iconos cambiar el icono de una app." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS has already let Iconos change an app's icon."
+          }
+        }
+      }
+    },
+    "media" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "medium"
+          }
+        }
+      }
+    },
+    "modo: %@ ficha: %@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "mode: %1$@ tile: %2$@ %3$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "modo: %1$@ ficha: %2$@ %3$@"
+          }
+        }
+      }
+    },
+    "motivo: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "reason: %@"
+          }
+        }
+      }
+    },
+    "método: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "method: %@"
+          }
+        }
+      }
+    },
+    "ninguna" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "none"
+          }
+        }
+      }
+    },
+    "no" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no"
+          }
+        }
+      }
+    },
+    "no existe %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ does not exist"
+          }
+        }
+      }
+    },
+    "no se pudo verificar la retirada del permiso:" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "could not verify the permission removal:"
+          }
+        }
+      }
+    },
+    "oscuro" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dark"
+          }
+        }
+      }
+    },
+    "quitado" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "removed"
+          }
+        }
+      }
+    },
+    "restauradas: %lld de %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "restored: %1$lld of %2$lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "restauradas: %1$lld de %2$lld"
+          }
+        }
+      }
+    },
+    "se abrió sin moverla de donde se descargó" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "was opened without moving it from where it was downloaded"
+          }
+        }
+      }
+    },
+    "silueta libre sin ficha" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "free silhouette without a tile"
+          }
+        }
+      }
+    },
+    "sin icono original" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no original icon"
+          }
+        }
+      }
+    },
+    "sin icono propio" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no icon of its own"
+          }
+        }
+      }
+    },
+    "sin identificador" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no identifier"
+          }
+        }
+      }
+    },
+    "sí" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "yes"
+          }
+        }
+      }
+    },
+    "¿Desinstalar Iconos?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uninstall Iconos?"
+          }
+        }
+      }
+    },
+    "¿Restaurar el icono original de %lld apps?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore the original icon of %lld apps?"
+          }
+        }
+      }
+    },
+    "¿Restaurar el icono original de 1 app?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore the original icon of 1 app?"
+          }
+        }
+      }
+    },
+    "Última revisión" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last Check"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
