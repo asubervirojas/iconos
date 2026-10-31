@@ -73,26 +73,31 @@ struct Lateral: View {
     var body: some View {
         let repetidos = e.nombresRepetidos
         let gestionadas = e.gestionadas, resto = e.resto
-        List(selection: $e.elegidas) {
-            if !gestionadas.isEmpty {
-                Section("Personalizadas") {
-                    ForEach(gestionadas) { FilaApp(app: $0, repetido: repetidos.contains($0.nombre)) }
+        // La cabecera va encima de la lista: como barra flotante, con avisos crecia hacia arriba y se
+        // metia debajo de los botones de la ventana
+        VStack(spacing: 0) {
+            CabeceraLista()
+            List(selection: $e.elegidas) {
+                if !gestionadas.isEmpty {
+                    Section("Personalizadas") {
+                        ForEach(gestionadas) { FilaApp(app: $0, repetido: repetidos.contains($0.nombre)) }
+                    }
+                }
+                if !resto.isEmpty {
+                    Section(gestionadas.isEmpty ? "Apps" : "Otras apps") {
+                        ForEach(resto) { FilaApp(app: $0, repetido: repetidos.contains($0.nombre)) }
+                    }
                 }
             }
-            if !resto.isEmpty {
-                Section(gestionadas.isEmpty ? "Apps" : "Otras apps") {
-                    ForEach(resto) { FilaApp(app: $0, repetido: repetidos.contains($0.nombre)) }
+            .overlay {
+                if gestionadas.isEmpty, resto.isEmpty, !e.escaneando {
+                    ContentUnavailableView("Ninguna app", systemImage: "line.3.horizontal.decrease",
+                                           description: Text(e.filtro == .todas ? "Nada coincide con la búsqueda." : "Ninguna app en «\(e.filtro.titulo)»."))
                 }
             }
-        }
-        .overlay {
-            if gestionadas.isEmpty, resto.isEmpty, !e.escaneando {
-                ContentUnavailableView("Ninguna app", systemImage: "line.3.horizontal.decrease",
-                                       description: Text(e.filtro == .todas ? "Nada coincide con la búsqueda." : "Ninguna app en «\(e.filtro.titulo)»."))
-            }
+            .safeAreaBar(edge: .bottom) { PildoraAgente().padding(10) }
         }
         .searchable(text: $e.busqueda, placement: .sidebar, prompt: "Buscar")
-        .safeAreaBar(edge: .top) { CabeceraLista() }
         // El agente cambia la variante con la apariencia: la lista mira otra vez cuando ya lo hizo
         .onChange(of: esquema) { e.programarEscaneo(4) }
         .toolbar {
@@ -100,7 +105,6 @@ struct Lateral: View {
                 Button("Volver a buscar apps", systemImage: "arrow.clockwise") { e.escanear() }
             }
         }
-        .safeAreaBar(edge: .bottom) { PildoraAgente().padding(10) }
     }
 }
 
@@ -191,6 +195,7 @@ extension EstadoFila {
 /// Filtro por estado y avisos de lo que anoto el agente, arriba de la lista
 struct CabeceraLista: View {
     @EnvironmentObject var e: Estudio
+    @State private var altoAvisos: CGFloat = 0
 
     var body: some View {
         VStack(spacing: 8) {
@@ -204,6 +209,19 @@ struct CabeceraLista: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .accessibilityLabel("Mostrar apps")
 
+            // Con muchos avisos se desplazan ellos: la lista de apps no se queda sin sitio
+            ScrollView {
+                avisos.onGeometryChange(for: CGFloat.self, of: \.size.height) { altoAvisos = $0 }
+            }
+            .scrollBounceBehavior(.basedOnSize)
+            .frame(height: min(altoAvisos, 300))
+        }
+        .padding(.horizontal, 10)
+        .padding(.bottom, 6)
+    }
+
+    private var avisos: some View {
+        VStack(spacing: 8) {
             let sinPermiso = e.pendientesSinPermiso
             if !sinPermiso.isEmpty {
                 Tarjeta(simbolo: "lock.fill", color: .orange,
@@ -240,8 +258,6 @@ struct CabeceraLista: View {
                 }
             }
         }
-        .padding(.horizontal, 10)
-        .padding(.bottom, 6)
     }
 }
 
