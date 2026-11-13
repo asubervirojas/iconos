@@ -5,7 +5,7 @@ B="$(cd "$(dirname "$0")" && pwd)"
 T=$(mktemp -d /private/tmp/iconos-seguridad.XXXXXX)
 trap 'rm -rf "$T"' EXIT
 mkdir -p "$T/fuentes" "$T/modulos"
-cp "$B/../Sources/Iconos/"{Aplicador,Almacen,Mantenimiento,Capas,Extractor,Lienzo,Identidad}.swift "$T/fuentes/"
+cp "$B/../Sources/Iconos/"{Aplicador,Almacen,Mantenimiento,Capas,Extractor,Lienzo,Identidad,IconoDelDock}.swift "$T/fuentes/"
 python3 - "$T/fuentes/Almacen.swift" <<'PY'
 from pathlib import Path
 import sys

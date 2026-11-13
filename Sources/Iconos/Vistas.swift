@@ -123,6 +123,8 @@ struct FilaApp: View {
                 Text(app.nombre).lineLimit(1)
                 if repetido {
                     Text(ubicacion).font(.caption2).foregroundStyle(.secondary).lineLimit(1)
+                } else if let web = app.web {
+                    Text("App web de \(web)").font(.caption2).foregroundStyle(.secondary).lineLimit(1)
                 }
             }
             Spacer(minLength: 4)
@@ -250,9 +252,11 @@ struct CabeceraLista: View {
                 }
             }
             ForEach(e.reubicables) { r in
-                Tarjeta(simbolo: "arrow.right.doc.on.clipboard", color: .accentColor,
-                        titulo: String(localized: "\(e.nombreGestionada(r.vieja)) está en otra ubicación"),
-                        detalle: String(localized: "Ahora está en \(((r.nueva as NSString).deletingLastPathComponent as NSString).abbreviatingWithTildeInPath).")) {
+                Tarjeta(simbolo: r.mismaRuta ? "globe" : "arrow.right.doc.on.clipboard", color: .accentColor,
+                        titulo: r.mismaRuta ? String(localized: "\(e.nombreGestionada(r.vieja)) se volvió a crear")
+                            : String(localized: "\(e.nombreGestionada(r.vieja)) está en otra ubicación"),
+                        detalle: r.mismaRuta ? String(localized: "Safari le dio otra identidad a esta app web. Pasa sus ajustes para que vuelva a tener su icono.")
+                            : String(localized: "Ahora está en \(((r.nueva as NSString).deletingLastPathComponent as NSString).abbreviatingWithTildeInPath).")) {
                     Button("Mover ajustes") { e.moverAjustes(r) }
                         .disabled(e.trabajando)
                 }
@@ -439,6 +443,22 @@ struct Editor: View {
                             }
                         } icon: {
                             Image(systemName: "circle.lefthalf.filled")
+                        }
+                    }
+                }
+
+                if let cambio = e.cambioDock {
+                    Section {
+                        Label {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(cambio.titulo)
+                                Text(cambio.detalle)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                        } icon: {
+                            Image(systemName: "dock.rectangle")
                         }
                     }
                 }

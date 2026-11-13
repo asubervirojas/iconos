@@ -234,6 +234,10 @@ final class Agente: NSObject {
         var cambio = false
         for i in config.apps.indices {
             var g = config.apps[i]
+            // Otra app en la misma ruta (una app web de Safari creada otra vez): sellar adoptaria su
+            // identidad y su respaldo seguiria con la anterior. Lo hace Mover ajustes en la ventana
+            if let id = g.bundleId, FileManager.default.fileExists(atPath: g.ruta),
+               (try? Aplicador.identificadorValidado(g.ruta)) != id { continue }
             // Gestionadas de antes de la huella: se sellan y se regeneran con la mejor fuente del bundle
             // (antes podian salir del icns de 256 px), sin avisar
             if g.huella == nil, FileManager.default.fileExists(atPath: g.ruta) {

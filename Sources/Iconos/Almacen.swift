@@ -132,6 +132,8 @@ struct AppEncontrada: Identifiable, Hashable {
     var bundleId: String?
     /// Variante que tiene puesta ahora (Icon\r de Iconos completo), nil si no tiene
     var puesta: Variante?
+    /// App web (PWA): el navegador que la creo. nil si es una app normal
+    var web: String?
 
     /// Apps de root sin el permiso de Iconos: se arreglan con Permitir cambios
     var necesitaPermiso: Bool { !escribible && !sistema && !bloqueada }
@@ -394,10 +396,28 @@ enum Almacen {
             salida.append(AppEncontrada(ruta: ruta, nombre: nombre, escribible: !sistema && Aplicador.escribible(ruta),
                                         personalizado: Aplicador.tieneIconoPersonalizado(ruta),
                                         sistema: sistema, bloqueada: Aplicador.bloqueadaPorFabricante(ruta),
-                                        bundleId: id, puesta: Aplicador.variantePuesta(ruta)))
+                                        bundleId: id, puesta: Aplicador.variantePuesta(ruta), web: navegadorWeb(info)))
         }
         return salida.sorted { $0.nombre.localizedStandardCompare($1.nombre) == .orderedAscending }
     }
+
+    /// Apps web (PWA). Safari las crea en ~/Applications (Archivo > Añadir al Dock); Chrome, Edge y
+    /// Brave en ~/Applications/<Navegador> Apps.localized, que el escaneo ya recorre (primer nivel).
+    /// Devuelve el nombre del navegador, o nil si no es una app web
+    static func navegadorWeb(_ info: [String: Any]?) -> String? {
+        guard let info else { return nil }
+        if esWebDeSafari(info["CFBundleIdentifier"] as? String) { return "Safari" }
+        // Plantilla app_mode-Info.plist de Chromium: CrAppModeShortcutID y CrBundleIdentifier
+        guard info["CrAppModeShortcutID"] != nil else { return nil }
+        if let id = info["CrBundleIdentifier"] as? String,
+           let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: id) {
+            return (FileManager.default.displayName(atPath: url.path) as NSString).deletingPathExtension
+        }
+        return "Chromium"
+    }
+
+    /// Safari da un identificador nuevo (com.apple.Safari.WebApp.<UUID>) cada vez que crea una app web
+    static func esWebDeSafari(_ id: String?) -> Bool { id?.hasPrefix("com.apple.Safari.WebApp.") == true }
 
     /// Icono original de la app: el que trae el bundle (Iconos solo escribe Icon\r, el icns y el
     /// Assets.car siguen intactos), el que se guardo antes del primer cambio o, si no tiene icono

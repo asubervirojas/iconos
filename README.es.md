@@ -147,6 +147,8 @@ cd iconos
 
 **¿Qué pasa cuando una app se actualiza?** La mayoría de las actualizaciones conservan el icono. Si alguna lo quita, el agente lo vuelve a poner en menos de un minuto. Si la actualización reemplazó una app de root, Iconos te avisa para volver a darle permiso.
 
+**¿Por qué una app muestra su propio icono en el Dock mientras está abierta?** Algunas apps cambian su icono del Dock desde su propio código mientras están abiertas: las hechas con egui/eframe lo hacen cada vez que se abren, y otras (Zoom, Teams, algunas apps de Electron) lo hacen para mostrar un aviso o un tema. En esas, el icono personalizado se sigue viendo en Finder, Spotlight y en el Dock con la app cerrada. Unas pocas traen un complemento que dibuja su icono del Dock incluso cerradas; en Finder y Spotlight sí se ve el personalizado. macOS no deja que otra app lo impida sin modificarla, así que Iconos te avisa cuando detecta una.
+
 **¿Por qué no está en la App Store ni notarizada?** La App Store no permite apps que modifican otras apps, y la notarización necesita una cuenta de pago de Apple Developer. Iconos es gratis y de código abierto: puedes leer cada línea y compilarla tú mismo.
 
 **¿Necesita internet?** No. No hace ninguna conexión de red.

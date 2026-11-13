@@ -2,6 +2,11 @@ import AppKit
 
 // Sustituye solo el servicio externo: estas pruebas nunca cargan ni paran launchd.
 enum ServicioAgente { static func desinstalar() {} }
+// iconservices tampoco se toca: solo se anota para que app se pidio generar el icono
+enum CacheDeIconos {
+    static var pedidas: [String] = []
+    @discardableResult static func preparar(_ ruta: String) -> Bool { pedidas.append(ruta); return true }
+}
 let fm = FileManager.default
 let raiz = Almacen.base.deletingLastPathComponent()
 var pruebas = 0
@@ -123,6 +128,7 @@ do {
     try comprobar(atributo(icono.path, "com.apple.FinderInfo") == finderIcono, "restaura FinderInfo del icono")
     try comprobar(atributo(destino.path, "com.apple.FinderInfo") == finderAntes, "restaura FinderInfo del bundle")
     try comprobar(Aplicador.variantePuesta(destino.path) == nil, "restaurado sin marca de Iconos")
+    try comprobar(CacheDeIconos.pedidas == [destino.path], "al restaurar se pide el icono claro y oscuro a iconservices")
 
     let limpia = try app("SinPrevia")
     try Aplicador.aplicar(icns: icns, a: limpia.path, variante: .claro)
@@ -208,6 +214,114 @@ do {
     try Almacen.escribirSeguro(Data("roto".utf8), en: Almacen.base.appendingPathComponent("acl-puestas.json"))
     try rechazar("registro ACL corrupto") { _ = try Aplicador.permisosRegistrados() }
     try comprobar(Aplicador.tieneACL(aclApp.path), "registro corrupto no toca ACL")
+    // Apps web (PWA): Safari y la plantilla de Chromium (app_mode-Info.plist)
+    try comprobar(Almacen.navegadorWeb(["CFBundleIdentifier": "com.apple.Safari.WebApp.AAAA"]) == "Safari", "detecta app web de Safari")
+    try comprobar(Almacen.navegadorWeb(["CFBundleIdentifier": "com.google.Chrome.app.abc", "CrAppModeShortcutID": "abc",
+                                        "CrBundleIdentifier": "test.navegador.inexistente"]) == "Chromium", "detecta app web de Chromium")
+    try comprobar(Almacen.navegadorWeb(["CFBundleIdentifier": "com.google.Chrome"]) == nil, "app normal no es web")
+    // Safari crea otra vez la app web: misma ruta, identificador nuevo
+    let idViejo = "com.apple.Safari.WebApp.11111111-1111-1111-1111-111111111111"
+    let idNuevo = "com.apple.Safari.WebApp.22222222-2222-2222-2222-222222222222"
+    let web = try app("Web", id: idViejo)
+    config = Configuracion(); config.apps = [Gestionada(ruta: web.path, nombre: "Web", bundleId: idViejo)]
+    try Almacen.guardar(config)
+    try Aplicador.aplicar(icns: icns, a: web.path, variante: .claro)
+    try fm.removeItem(at: web)
+    _ = try app("Web", id: idNuevo)
+    try rechazar("aplicar sobre app web recreada sin reconocerla") { try Aplicador.aplicar(icns: icns, a: web.path, variante: .claro) }
+    func encontrada(_ url: URL, _ id: String) -> AppEncontrada {
+        AppEncontrada(ruta: url.path, nombre: "Web", escribible: true, personalizado: false, bundleId: id)
+    }
+    let ofrecidas = Almacen.reubicables([encontrada(web, idNuevo)], Almacen.cargar())
+    try comprobar(ofrecidas.count == 1 && ofrecidas[0].vieja == web.path && ofrecidas[0].nueva == web.path, "ofrece recuperar app web recreada")
+    try comprobar(Almacen.reubicables([encontrada(web, idViejo)], Almacen.cargar()).isEmpty, "app web intacta no se ofrece")
+    try Almacen.reubicar(vieja: web.path, nueva: web.path)
+    try comprobar(Almacen.cargar().apps.first?.bundleId == idNuevo, "app web recreada toma la identidad nueva")
+    // Reintento tras un fallo entre el respaldo y la configuracion: no se queda bloqueada
+    try Aplicador.readoptarRespaldo(web.path, de: idViejo, a: idNuevo)
+    print("OK: readoptar el respaldo dos veces no falla")
+    try Aplicador.aplicar(icns: icns, a: web.path, variante: .claro)
+    try Aplicador.restaurar(web.path)
+    try comprobar(!fm.fileExists(atPath: Aplicador.iconoPersonalizado(web.path)), "app web recuperada se aplica y restaura")
+    // Una app normal con otro identificador en la misma ruta sigue rechazada
+    let normal = try app("Normal", id: "test.normal.a")
+    config = Configuracion(); config.apps = [Gestionada(ruta: normal.path, nombre: "Normal", bundleId: "test.normal.a")]
+    try Almacen.guardar(config)
+    try fm.removeItem(at: normal)
+    _ = try app("Normal", id: "test.normal.b")
+    try comprobar(Almacen.reubicables([encontrada(normal, "test.normal.b")], Almacen.cargar()).isEmpty, "app normal con otra identidad no se ofrece")
+    try rechazar("reubicar en el sitio una app que no es web") { try Almacen.reubicar(vieja: normal.path, nueva: normal.path) }
+    try comprobar(Almacen.cargar().apps.first?.bundleId == "test.normal.a", "identidad de app normal intacta")
+    try Almacen.guardar(Configuracion())
+    // Apps que ponen su propio icono en el Dock mientras estan abiertas
+    let selectorDock = "setApplicationIconImage:\u{0}"
+    func binario(_ url: URL, _ texto: String) throws {
+        try fm.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try (Data([0xcf, 0xfa, 0xed, 0xfe]) + Data(texto.utf8)).write(to: url)
+    }
+    func texto(_ url: URL, _ contenido: String) throws {
+        try fm.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try Data(contenido.utf8).write(to: url)
+    }
+    func appDock(_ nombre: String, ejecutable: String, info extra: [String: Any] = [:]) throws -> URL {
+        let url = raiz.appendingPathComponent("Dock/\(nombre).app")
+        var info: [String: Any] = ["CFBundlePackageType": "APPL", "CFBundleIdentifier": "test.dock.\(nombre)",
+                                   "CFBundleExecutable": nombre, "CFBundleVersion": "1"]
+        info.merge(extra) { $1 }
+        try fm.createDirectory(at: url.appendingPathComponent("Contents"), withIntermediateDirectories: true)
+        try PropertyListSerialization.data(fromPropertyList: info, format: .xml, options: 0)
+            .write(to: url.appendingPathComponent("Contents/Info.plist"))
+        try binario(url.appendingPathComponent("Contents/MacOS/\(nombre)"), ejecutable)
+        return url
+    }
+    let egui = try appDock("Egui", ejecutable: "eframe-0.36.2 objc2-app-kit-0.3.2 " + selectorDock)
+    try comprobar(DetectorDock.analizar(egui.path) == .siempre, "eframe cambia el icono del Dock en cada arranque")
+    let rust = try appDock("Rust", ejecutable: "objc2-app-kit-0.3.2 " + selectorDock)
+    try comprobar(DetectorDock.analizar(rust.path) == .aVeces, "selector en el ejecutable: puede cambiarlo")
+    let sinSelector = try appDock("SinSelector", ejecutable: "sharedApplication setActivationPolicy: applicationIconImage")
+    try comprobar(DetectorDock.analizar(sinSelector.path) == nil, "sin el selector no se avisa")
+    let tile = try appDock("Tile", ejecutable: "", info: ["NSDockTilePlugIn": "Tile.docktileplugin"])
+    try comprobar(DetectorDock.analizar(tile.path) == .dibujaPropio, "NSDockTilePlugIn dibuja su icono")
+    let marco = try appDock("Marco", ejecutable: "nada")
+    try binario(marco.appendingPathComponent("Contents/Frameworks/UI.framework/Versions/A/UI"), selectorDock)
+    try comprobar(DetectorDock.analizar(marco.path) == .aVeces, "framework cargado en el proceso cuenta")
+    let otros = try appDock("Otros", ejecutable: "nada")
+    try binario(otros.appendingPathComponent("Contents/Frameworks/Sparkle.framework/Versions/B/Updater.app/Contents/MacOS/Updater"), selectorDock)
+    try binario(otros.appendingPathComponent("Contents/PlugIns/Widget.appex/Contents/MacOS/Widget"), selectorDock)
+    try binario(otros.appendingPathComponent("Contents/PlugIns/jdk-21.jdk/Contents/Home/lib/libawt_lwawt.dylib"), selectorDock)
+    try texto(otros.appendingPathComponent("Contents/Frameworks/notas.txt"), selectorDock)
+    try comprobar(DetectorDock.analizar(otros.path) == nil, "apps, extensiones, Java y archivos que no son Mach-O no cuentan")
+    let electron = try appDock("Electron", ejecutable: "nada")
+    try binario(electron.appendingPathComponent("Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework"), selectorDock)
+    try texto(electron.appendingPathComponent("Contents/Resources/app.asar"), "app.dock.setBadge('1');win.setIcon(i);tray.setIcon(i);x.dock.setIcons(i)")
+    try comprobar(DetectorDock.analizar(electron.path) == nil, "Electron sin dock.setIcon no se avisa")
+    let electronIcono = try appDock("ElectronIcono", ejecutable: "nada")
+    try binario(electronIcono.appendingPathComponent("Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework"), selectorDock)
+    try texto(electronIcono.appendingPathComponent("Contents/Resources/app.asar"), "abc;e.app.dock?.setIcon (p);")
+    try comprobar(DetectorDock.analizar(electronIcono.path) == .aVeces, "Electron con dock?.setIcon en app.asar")
+    let electronCarpeta = try appDock("ElectronCarpeta", ejecutable: "nada")
+    try binario(electronCarpeta.appendingPathComponent("Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework"), selectorDock)
+    try texto(electronCarpeta.appendingPathComponent("Contents/Resources/app/main.js"), "const {app}=require('electron');app.dock.setIcon(ruta)")
+    try comprobar(DetectorDock.analizar(electronCarpeta.path) == .aVeces, "Electron con dock.setIcon en Resources/app")
+    try comprobar(DetectorDock.llamaDockSetIcon(Data("dock.setIcon\n(".utf8)) && !DetectorDock.llamaDockSetIcon(Data("dock .setIcon(".utf8))
+                  && !DetectorDock.llamaDockSetIcon(Data(".setIcon(".utf8)), "patrón de dock.setIcon")
+    // Electron con el framework renombrado y el JS sin empaquetar en Resources/app
+    let renombrada = try appDock("Renombrada", ejecutable: "nada")
+    try binario(renombrada.appendingPathComponent("Contents/Frameworks/Codex Framework.framework/Versions/A/Codex Framework"), selectorDock)
+    try texto(renombrada.appendingPathComponent("Contents/Resources/app/package.json"), "{\"main\":\"main.js\"}")
+    try texto(renombrada.appendingPathComponent("Contents/Resources/app/main.js"), "app.dock.setBadge('1')")
+    try comprobar(DetectorDock.analizar(renombrada.path) == nil, "Electron renombrado con Resources/app sin dock.setIcon")
+    // El selector partido entre dos bloques de lectura (4 MB) se encuentra igual
+    let grande = try appDock("Grande", ejecutable: "")
+    try (Data([0xcf, 0xfa, 0xed, 0xfe]) + Data(count: (4 << 20) - 14) + Data(selectorDock.utf8))
+        .write(to: grande.appendingPathComponent("Contents/MacOS/Grande"))
+    try comprobar(DetectorDock.analizar(grande.path) == .aVeces, "selector en el borde de dos bloques")
+    // Un analisis cancelado no deja nada en la cache
+    let cancelable = try appDock("Cancelable", ejecutable: selectorDock)
+    let cancelacion = Cancelacion()
+    cancelacion.cancelar()
+    try comprobar(DetectorDock.analizar(cancelable.path, cancelacion: cancelacion) == nil
+                  && DetectorDock.analizar(cancelable.path) == .aVeces, "cancelado devuelve nil sin guardarlo")
     // Fixture de arte para probar el generador y el banco sin leer apps instaladas.
     let muestra = try app("Muestra", en: raiz.appendingPathComponent("Muestras"))
     try fm.createDirectory(at: muestra.appendingPathComponent("Contents/Resources"), withIntermediateDirectories: true)

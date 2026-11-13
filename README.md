@@ -147,6 +147,8 @@ cd iconos
 
 **What happens when an app updates?** Most updates keep the custom icon. If one removes it, the agent puts it back within a minute. If an update replaced a root-owned app, Iconos notifies you to allow it again.
 
+**Why does an app show its own icon in the Dock while it's open?** Some apps replace their Dock icon from their own code while running: apps built with egui/eframe do it every time they open, and others (Zoom, Teams, some Electron apps) do it to show an alert or a theme. For those, the custom icon still shows in Finder, Spotlight and in the Dock while the app is closed. A few apps ship a Dock tile plug-in that draws the Dock icon even while closed; Finder and Spotlight still show the custom icon. macOS doesn't let another app stop this without modifying the app, so Iconos tells you when it detects one.
+
 **Why isn't it on the App Store or notarized?** The App Store doesn't allow apps that modify other apps, and notarization needs a paid Apple Developer account. Iconos is free and open source; you can read every line and build it yourself.
 
 **Does it need internet?** No. It makes no network connections.

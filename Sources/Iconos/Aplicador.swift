@@ -47,6 +47,13 @@ enum Aplicador {
         } catch { close(dir); throw error }
     }
 
+    /// Identificador del bundle, leido con la misma validacion que antes de escribir
+    static func identificadorValidado(_ ruta: String) throws -> String? {
+        let dir = try abrirValidada(ruta, bundleId: nil)
+        defer { close(dir) }
+        return try identificador(dir)
+    }
+
     private static func identificador(_ dir: Int32) throws -> String? {
         let contents = openat(dir, "Contents", O_RDONLY | O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC)
         guard contents >= 0 else { throw ErrorIconos("La app no tiene un directorio Contents válido.") }
@@ -123,6 +130,23 @@ enum Aplicador {
                     previo.finderIcono = try leerAtributo(icono, "com.apple.FinderInfo")
                 }
             } else if errno != ENOENT { throw errorEscritura(errno) }
+            try Almacen.escribirSeguro(JSONEncoder().encode(previo), en: respaldoURL(app))
+        }
+    }
+
+    /// App web de Safari creada otra vez en la misma ruta: su respaldo pasa a la identidad nueva.
+    /// Safari la crea sin icono personalizado, asi que lo que guardo la anterior sigue siendo el
+    /// original que el usuario tenia ahi
+    static func readoptarRespaldo(_ app: String, de anterior: String?, a nuevo: String) throws {
+        try Almacen.conBloqueoArchivo(".bloqueo-respaldos") {
+            guard let datos = try Almacen.leerSeguro(respaldoURL(app)) else { return }
+            var previo = try JSONDecoder().decode(Respaldo.self, from: datos)
+            // Ya readoptado: un intento anterior escribio el respaldo y no llego a guardar la configuracion
+            if previo.bundleId == nuevo { return }
+            guard previo.bundleId == anterior else {
+                throw ErrorIconos("El respaldo del icono pertenece a otra app. No se modificó \(app).")
+            }
+            previo.bundleId = nuevo
             try Almacen.escribirSeguro(JSONEncoder().encode(previo), en: respaldoURL(app))
         }
     }
@@ -606,6 +630,7 @@ enum Aplicador {
         }
         guard mismoArchivo(dir, app) else { throw ErrorIconos("La app cambió mientras se restauraba el icono.", transitorio: true) }
         NSWorkspace.shared.noteFileSystemChanged(app)
+        CacheDeIconos.preparar(app)
     }
 
     // MARK: Dock

@@ -70,6 +70,16 @@
         }
       }
     },
+    "%@ se volvió a crear" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ was created again"
+          }
+        }
+      }
+    },
     "%@: icono %@ puesto" : {
       "localizations" : {
         "en" : {
@@ -706,6 +716,16 @@
         }
       }
     },
+    "App web de %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ web app"
+          }
+        }
+      }
+    },
     "Apps" : {
       "localizations" : {
         "en" : {
@@ -752,6 +772,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apps imported: %lld. The import could not be completed:"
+          }
+        }
+      }
+    },
+    "Apps web" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web Apps"
           }
         }
       }
@@ -842,6 +872,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Search"
+          }
+        }
+      }
+    },
+    "Cada vez que se abre, la app pone su propio icono en el Dock. El de Iconos se ve en Finder, Spotlight y en el Dock cuando está cerrada. macOS no deja que otra app lo impida." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every time it opens, the app puts its own icon in the Dock. The Iconos icon shows in Finder, Spotlight and in the Dock while the app is closed. macOS doesn't let another app prevent this."
           }
         }
       }
@@ -1186,6 +1226,16 @@
         }
       }
     },
+    "Dock: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dock: %@"
+          }
+        }
+      }
+    },
     "El agente dentro de Iconos.app es de otra versión (%@) que la app (%@). Vuelve a descargar Iconos." : {
       "localizations" : {
         "en" : {
@@ -1462,6 +1512,26 @@
         }
       }
     },
+    "Esta app cambia su icono del Dock al abrirse" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app changes its Dock icon when it opens"
+          }
+        }
+      }
+    },
+    "Esta app dibuja su propio icono del Dock" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app draws its own Dock icon"
+          }
+        }
+      }
+    },
     "Esta app es de root" : {
       "localizations" : {
         "en" : {
@@ -1478,6 +1548,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This app has no icon of its own: choose your images"
+          }
+        }
+      }
+    },
+    "Esta app puede cambiar su icono del Dock" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app may change its Dock icon"
           }
         }
       }
@@ -1894,6 +1974,16 @@
         }
       }
     },
+    "Iconos vuelve a reconocer %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iconos recognizes %@ again."
+          }
+        }
+      }
+    },
     "Iconos ya está en Aplicaciones, pero no se pudo abrir (%@). Ábrela desde allí." : {
       "localizations" : {
         "en" : {
@@ -2160,6 +2250,16 @@
         }
       }
     },
+    "La app web no cambió de identidad." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The web app's identity didn't change."
+          }
+        }
+      }
+    },
     "La app ya no está en la lista de Iconos." : {
       "localizations" : {
         "en" : {
@@ -2406,6 +2506,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Maintenance"
+          }
+        }
+      }
+    },
+    "Mientras está abierta puede poner su propio icono en el Dock (por ejemplo, para mostrar un aviso). Cuando lo haga, verás el suyo hasta que la cierres. En Finder y Spotlight sigue el de Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "While it's open, it can put its own icon in the Dock (for example, to show an alert). When it does, you'll see its icon until you quit it. Finder and Spotlight keep the Iconos icon."
           }
         }
       }
@@ -3392,6 +3502,16 @@
         }
       }
     },
+    "Safari le dio otra identidad a esta app web. Pasa sus ajustes para que vuelva a tener su icono." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari gave this web app a new identity. Move its settings so it gets its icon back."
+          }
+        }
+      }
+    },
     "Se abre Terminal y pide tu contraseña una sola vez para todas. Terminal necesita el permiso Gestión de apps." : {
       "localizations" : {
         "en" : {
@@ -3718,6 +3838,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "All"
+          }
+        }
+      }
+    },
+    "Trae un complemento que dibuja su icono en el Dock, incluso cerrada. Puede que el Dock no muestre el de Iconos; en Finder y Spotlight sí se ve." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It includes a plug-in that draws its Dock icon, even while closed. The Dock may not show the Iconos icon; Finder and Spotlight do."
           }
         }
       }

@@ -326,6 +326,13 @@ extension Almacen {
             usadas.insert(nueva.ruta)
             salida.append((g.ruta, nueva.ruta))
         }
+        // App web de Safari borrada y creada otra vez con el mismo nombre: misma ruta, otro
+        // identificador. Sin esto Iconos no la tocaria (la identidad no coincide)
+        for g in config.apps where esWebDeSafari(g.bundleId) {
+            guard let actual = apps.first(where: { $0.ruta == g.ruta }),
+                  esWebDeSafari(actual.bundleId), actual.bundleId != g.bundleId else { continue }
+            salida.append((g.ruta, g.ruta))
+        }
         return salida
     }
 
@@ -336,6 +343,21 @@ extension Almacen {
             var config = cargar()
             guard let i = config.apps.firstIndex(where: { $0.ruta == vieja }) else {
                 throw ErrorIconos("La app ya no está en la lista de Iconos.")
+            }
+            if vieja == nueva {
+                // App web de Safari creada otra vez: solo cambia su identidad. Sus datos ya estan
+                // en la carpeta de esa ruta
+                let anterior = config.apps[i].bundleId
+                let leido = try Aplicador.identificadorValidado(nueva)
+                guard esWebDeSafari(anterior), esWebDeSafari(leido), let actual = leido, actual != anterior else {
+                    throw ErrorIconos("La app web no cambió de identidad.")
+                }
+                guard !configDanada else { throw ErrorIconos("La configuración está dañada; no se reubicó la app.") }
+                try Aplicador.readoptarRespaldo(nueva, de: anterior, a: actual)
+                config.apps[i].bundleId = actual
+                try guardar(config)
+                resolverPendiente(ruta: vieja)
+                return
             }
             guard !config.apps.contains(where: { $0.ruta == nueva }) else {
                 throw ErrorIconos("La app de la ruta nueva ya tiene su icono en Iconos.")

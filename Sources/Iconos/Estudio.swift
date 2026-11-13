@@ -32,7 +32,7 @@ enum EstadoFila {
 
 /// Filtros de la barra lateral
 enum FiltroApps: String, CaseIterable, Identifiable {
-    case todas, personalizadas, sinPersonalizar, sinPermiso, noSePueden, oscuroPropio
+    case todas, personalizadas, sinPersonalizar, sinPermiso, noSePueden, oscuroPropio, web
 
     var id: String { rawValue }
 
@@ -44,15 +44,17 @@ enum FiltroApps: String, CaseIterable, Identifiable {
         case .sinPermiso: String(localized: "Sin permiso")
         case .noSePueden: String(localized: "No se pueden cambiar")
         case .oscuroPropio: String(localized: "Con modo oscuro propio")
+        case .web: String(localized: "Apps web")
         }
     }
 }
 
-/// Gestionada cuya app se reinstalo en otra ruta
+/// Gestionada cuya app se reinstalo en otra ruta, o app web de Safari creada otra vez en la misma
 struct Reubicable: Identifiable, Equatable {
     let vieja: String
     let nueva: String
     var id: String { vieja }
+    var mismaRuta: Bool { vieja == nueva }
 }
 
 /// Estado de la ventana: apps escaneadas, la que se edita y sus vistas previas
@@ -87,6 +89,9 @@ final class Estudio: ObservableObject {
     @Published private(set) var previaOscuro: NSImage?
     /// Como sale el logo del borrador; se calcula junto a las previas
     @Published private(set) var diagnostico: Diagnostico?
+    /// Si la app elegida pone su propio icono en el Dock mientras esta abierta
+    @Published private(set) var cambioDock: CambioDelDock?
+    private var tareaDock: Task<Void, Never>?
     @Published private(set) var trabajando = false
     @Published private(set) var escaneando = false
     @Published private(set) var mensaje: String?
@@ -209,6 +214,7 @@ final class Estudio: ObservableObject {
         case .sinPermiso: a.necesitaPermiso
         case .noSePueden: a.sistema || a.bloqueada
         case .oscuroPropio: oscuroPropio.contains(a.ruta)
+        case .web: a.web != nil
         }
     }
 
@@ -464,7 +470,8 @@ final class Estudio: ObservableObject {
             case .success:
                 self.avisarAgente()
                 if self.seleccion == r.nueva { self.cargarSeleccion() }
-                self.mensaje = String(localized: "Se movieron los ajustes de \(nombre) a su nueva ubicación.")
+                self.mensaje = r.mismaRuta ? String(localized: "Iconos vuelve a reconocer \(nombre).")
+                    : String(localized: "Se movieron los ajustes de \(nombre) a su nueva ubicación.")
             }
             self.escanear()
         }
@@ -517,8 +524,10 @@ final class Estudio: ObservableObject {
         propiasPendientes = false
         quitarPropiasPendiente = false
         diagnostico = nil
+        cambioDock = nil
         tareaArte?.cancel()
         tareaPrevias?.cancel()
+        tareaDock?.cancel()
         arte = nil
         arteDe = nil
         previaOriginal = nil
@@ -541,6 +550,13 @@ final class Estudio: ObservableObject {
             self.arteDe = ruta
             self.previaOriginal = arte.map { NSImage(cgImage: $0, size: .zero) }
             self.actualizarPrevias()
+        }
+        // Lee binarios que pueden pesar cientos de MB (Xcode, Office): en su propia cola, y se para si
+        // se elige otra app antes de que termine
+        tareaDock = Task { [weak self] in
+            let cambio = await DetectorDock.analizarEnCola(ruta)
+            guard !Task.isCancelled, let self, self.seleccion == ruta else { return }
+            self.cambioDock = cambio
         }
     }
 

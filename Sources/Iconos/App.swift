@@ -302,6 +302,7 @@ enum Herramientas {
         print(String(localized: "confianza: \(d.confianza.nombre) (\(d.confianza.titulo))"))
         for m in d.motivos { print(String(localized: "motivo: \(m)")) }
         if d.fuentePx > 0 { print(String(localized: "fuente: \(d.fuentePx) px")) }
+        if let cambio = DetectorDock.analizar(app) { print(String(localized: "Dock: \(cambio.titulo)")) }
         return 0
     }
 
