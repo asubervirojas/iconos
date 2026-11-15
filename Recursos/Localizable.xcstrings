@@ -576,6 +576,16 @@
         }
       }
     },
+    "Al abrirse la app, Iconos desactiva en memoria la orden con la que ella cambia su icono del Dock. No modifica la app: abre un puerto de depuración local menos de un segundo, y el cambio se pierde al cerrarla." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When the app opens, Iconos turns off in memory the command the app uses to change its Dock icon. It doesn't modify the app: it opens a local debugging port for under a second, and the change is lost when the app quits."
+          }
+        }
+      }
+    },
     "Al volver aquí, el cambio automático les pone el icono otra vez." : {
       "localizations" : {
         "en" : {
@@ -622,6 +632,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Appearance"
+          }
+        }
+      }
+    },
+    "Aplica el icono antes de activarlo." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apply the icon before turning this on."
           }
         }
       }
@@ -882,6 +902,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Every time it opens, the app puts its own icon in the Dock. The Iconos icon shows in Finder, Spotlight and in the Dock while the app is closed. macOS doesn't let another app prevent this."
+          }
+        }
+      }
+    },
+    "Cada vez que se abre, la app pone su propio icono en el Dock. El de Iconos se ve en Finder, Spotlight y en el Dock cuando está cerrada. macOS no deja que otra app lo impida, salvo en algunas apps de Electron con la opción de abajo." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every time it opens, the app puts its own icon in the Dock. The Iconos icon shows in Finder, Spotlight and in the Dock while the app is closed. macOS doesn't let another app prevent this, except in some Electron apps with the option below."
           }
         }
       }
@@ -1538,6 +1568,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This app is owned by root"
+          }
+        }
+      }
+    },
+    "Esta app no admite mantener su icono en el Dock: su fabricante desactivó el inspector de Electron o usa una versión de Electron anterior a la 34." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app can't keep its icon in the Dock: its vendor turned off Electron's inspector or it uses a version of Electron older than 34."
           }
         }
       }
@@ -2500,6 +2540,26 @@
         }
       }
     },
+    "Mantener el icono de Iconos en el Dock" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep the Iconos icon in the Dock"
+          }
+        }
+      }
+    },
+    "Mantener el icono necesita el cambio automático activo (abajo a la izquierda)." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keeping the icon needs automatic switching to be on (bottom left)."
+          }
+        }
+      }
+    },
     "Mantenimiento" : {
       "localizations" : {
         "en" : {
@@ -2516,6 +2576,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "While it's open, it can put its own icon in the Dock (for example, to show an alert). When it does, you'll see its icon until you quit it. Finder and Spotlight keep the Iconos icon."
+          }
+        }
+      }
+    },
+    "Mientras está abierta puede poner su propio icono en el Dock (por ejemplo, para mostrar un aviso). Cuando lo haga, verás el suyo hasta que la cierres, salvo en algunas apps de Electron con la opción de abajo. En Finder y Spotlight sigue el de Iconos." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "While it's open, it can put its own icon in the Dock (for example, to show an alert). When it does, you'll see its icon until you quit it, except in some Electron apps with the option below. Finder and Spotlight keep the Iconos icon."
           }
         }
       }

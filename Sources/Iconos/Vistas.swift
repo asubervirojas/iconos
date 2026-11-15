@@ -452,7 +452,7 @@ struct Editor: View {
                         Label {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(cambio.titulo)
-                                Text(cambio.detalle)
+                                Text(cambio.detalle(conOpcion: e.parcheDock == .disponible || e.mantenerIconoDock(app.ruta)))
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                                     .fixedSize(horizontal: false, vertical: true)
@@ -460,7 +460,10 @@ struct Editor: View {
                         } icon: {
                             Image(systemName: "dock.rectangle")
                         }
+                        mantenerIconoDock(app)
                     }
+                } else if e.mantenerIconoDock(app.ruta) {
+                    Section { mantenerIconoDock(app) }
                 }
 
                 if !app.escribible {
@@ -543,6 +546,39 @@ struct Editor: View {
 
     private var borrador: Binding<Gestionada> {
         Binding(get: { e.borrador ?? Gestionada(ruta: "", nombre: "") }, set: { e.borrador = $0 })
+    }
+
+    /// Dentro del aviso del Dock: en apps de Electron que cambian solas su icono, el agente puede
+    /// dejar el de Iconos (ParcheDock)
+    @ViewBuilder private func mantenerIconoDock(_ app: AppEncontrada) -> some View {
+        // Con la opcion ya guardada el interruptor sigue ahi aunque la deteccion cambie tras una
+        // actualizacion de la app: si no, no habria como apagarla
+        if e.parcheDock == .disponible || e.mantenerIconoDock(app.ruta) {
+            Toggle(isOn: Binding(get: { e.mantenerIconoDock(app.ruta) }, set: { e.fijarMantenerIconoDock(app.ruta, $0) })) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Mantener el icono de Iconos en el Dock")
+                    Text("Al abrirse la app, Iconos desactiva en memoria la orden con la que ella cambia su icono del Dock. No modifica la app: abre un puerto de depuración local menos de un segundo, y el cambio se pierde al cerrarla.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            .disabled(e.gestionada(app.ruta) == nil)
+            if e.gestionada(app.ruta) == nil {
+                Text("Aplica el icono antes de activarlo.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            } else if e.mantenerIconoDock(app.ruta), !e.agenteActivo {
+                Text("Mantener el icono necesita el cambio automático activo (abajo a la izquierda).")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+        } else if e.parcheDock == .noDisponible {
+            Text("Esta app no admite mantener su icono en el Dock: su fabricante desactivó el inspector de Electron o usa una versión de Electron anterior a la 34.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
     }
 
     @ViewBuilder private func avisoPermiso(_ app: AppEncontrada) -> some View {

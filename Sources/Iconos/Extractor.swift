@@ -508,7 +508,7 @@ enum Extractor {
    }
   }}
   let brand=colored && lightForeground>otherForeground*2
-  let separation:Float = chromaRGB(center)<0.1 && gray(center)<0.15 ? 0.035 : 0.10
+  let separation:Float = chromaRGB(center)<0.25 && gray(center)<0.25 ? 0.035 : 0.10
   if colored && !brand {
    for i in 0..<total where eligible[i]>0 {let d=colors[i]-bg[i];if dot(d,d)>separation {strong[i]=1}}
   }

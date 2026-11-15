@@ -9,6 +9,7 @@ final class Agente: NSObject {
     /// Carpetas vigiladas (/Applications, ~/Applications y las de cada app gestionada)
     private var vigilantes: [String: DispatchSourceFileSystemObject] = [:]
     private var pendiente: DispatchWorkItem?
+    private var parchePendiente: DispatchWorkItem?
     private var observacionApariencia: NSKeyValueObservation?
     /// Tras un error no se reintenta en cada revision: poco despues si la app se estaba
     /// actualizando, diez minutos si fue de permisos
@@ -28,10 +29,16 @@ final class Agente: NSObject {
     /// la ventana ve si el agente que corre es de otra version que ella
     private static let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
 
+    /// El agente en marcha (solo del hilo principal): MantenedorDock pide desde otro hilo volver a mirar
+    nonisolated(unsafe) private static var actual: Agente?
+
+    static func reprogramarParches() { actual?.programarParches(5) }
+
     static func correr() -> Never {
         let app = NSApplication.shared
         app.setActivationPolicy(.prohibited)
         let agente = Agente()
+        actual = agente
         agente.empezar()
         app.run()
         exit(0)
@@ -46,6 +53,8 @@ final class Agente: NSObject {
         dnc.addObserver(self, selector: #selector(configuracionCambiada), name: Almacen.aviso, object: nil)
         // La apariencia automatica puede cambiar mientras el Mac duerme
         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(avisado), name: NSWorkspace.didWakeNotification, object: nil)
+        // Apps con Mantener el icono en el Dock: se parchean al abrirse
+        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(appAbierta), name: NSWorkspace.didLaunchApplicationNotification, object: nil)
         Avisos.empezar()
 
         vigilarCarpetas()
@@ -53,8 +62,10 @@ final class Agente: NSObject {
         Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
             guard let self else { return }
             if Date() < self.estabilizarHasta { Almacen.latir() } else { self.revisar() }
+            self.programarParches(0)
         }
         programar(1)
+        programarParches(5)
         Agente.log("agente iniciado")
     }
 
@@ -96,11 +107,47 @@ final class Agente: NSObject {
 
     @objc private func avisado(_ nota: Notification) { programar(0.5) }
 
+    /// Una app se abrio: si tiene la opcion de mantener su icono en el Dock, se mira cuando ya arranco
+    @objc private func appAbierta(_ nota: Notification) { programarParches(2.5) }
+
     /// La ventana aplico, restauro o cambio un ajuste: lo que fallo antes se intenta ya
     @objc private func configuracionCambiada(_ nota: Notification) {
         reintentarDesde.removeAll()
         vigilarCarpetas()
         programar(0.5)
+        Task { await MantenedorDock.compartido.olvidarFallos() }
+        programarParches(1)
+    }
+
+    private func programarParches(_ segundos: TimeInterval) {
+        parchePendiente?.cancel()
+        let trabajo = DispatchWorkItem { [weak self] in self?.mantenerIconosDelDock() }
+        parchePendiente = trabajo
+        DispatchQueue.main.asyncAfter(deadline: .now() + segundos, execute: trabajo)
+    }
+
+    /// Instancias en marcha de las apps con Mantener el icono en el Dock. MantenedorDock hace el trabajo
+    /// fuera del hilo principal; si algo queda esperando (recien abierta) se vuelve a mirar pronto
+    private func mantenerIconosDelDock() {
+        let con = Almacen.cargar().apps.filter(\.mantenerIconoDock)
+        guard !con.isEmpty else { return }
+        var objetivos: [ObjetivoParche] = []
+        for corriendo in NSWorkspace.shared.runningApplications where !corriendo.isTerminated {
+            guard let url = corriendo.bundleURL?.resolvingSymlinksInPath().path,
+                  let g = con.first(where: {
+                      URL(fileURLWithPath: $0.ruta).resolvingSymlinksInPath().path == url
+                          && ($0.bundleId == nil || $0.bundleId == corriendo.bundleIdentifier)
+                  }) else { continue }
+            objetivos.append(ObjetivoParche(pid: corriendo.processIdentifier,
+                                            inicio: corriendo.launchDate?.timeIntervalSince1970
+                                                ?? ParcheDock.inicioProceso(corriendo.processIdentifier) ?? 0,
+                                            ruta: g.ruta, nombre: g.nombre, listo: corriendo.isFinishedLaunching))
+        }
+        guard !objetivos.isEmpty else { return }
+        Task {
+            let pendiente = await MantenedorDock.compartido.mantener(objetivos)
+            if pendiente { DispatchQueue.main.async { Agente.reprogramarParches() } }
+        }
     }
 
     /// Agrupa eventos seguidos en una sola revision

@@ -97,8 +97,17 @@ struct Gestionada: Codable, Identifiable, Equatable {
     /// Como salio el logo al aplicar
     var confianza: Confianza?
     var metodo: String?
+    /// Opcion para apps de Electron que cambian solas su icono del Dock (ParcheDock). Opcional para que
+    /// las configuraciones guardadas antes de que existiera se sigan leyendo
+    var conservarIconoDock: Bool?
 
     var id: String { ruta }
+
+    /// Con la opcion, el agente neutraliza en memoria app.dock.setIcon cada vez que la app se abre
+    var mantenerIconoDock: Bool {
+        get { conservarIconoDock ?? false }
+        set { conservarIconoDock = newValue ? true : nil }
+    }
 }
 
 struct Configuracion: Codable {

@@ -2,7 +2,7 @@
 
 *One clean, consistent icon style for every app on your Mac, in Light and Dark Mode*
 
-![Platform](https://img.shields.io/badge/Platform-macOS_26+-black) ![Architecture](https://img.shields.io/badge/Architecture-Apple_Silicon-black) ![License](https://img.shields.io/badge/License-MIT-blue) ![Privacy](https://img.shields.io/badge/Network-None-success) [![Release](https://img.shields.io/github/v/release/asubervirojas/iconos?label=Release&color=blueviolet)](https://github.com/asubervirojas/iconos/releases/latest)
+![Platform](https://img.shields.io/badge/Platform-macOS_26+-black) ![Architecture](https://img.shields.io/badge/Architecture-Apple_Silicon-black) ![License](https://img.shields.io/badge/License-MIT-blue) ![Privacy](https://img.shields.io/badge/Internet-None-success) [![Release](https://img.shields.io/github/v/release/asubervirojas/iconos?label=Release&color=blueviolet)](https://github.com/asubervirojas/iconos/releases/latest)
 
 **Iconos** extracts just the logo from each app's icon, drops the vendor's background plate, and places it on a native macOS-style tile: white in Light Mode, dark in Dark Mode. A small background agent switches every icon when you change appearance and puts it back after an app updates itself.
 
@@ -41,7 +41,7 @@ macOS 26 gave the Dock a unified look, but every app still ships its own plate: 
 - **Confidence score:** every extraction is rated *reliable*, *check it* or *didn't work*, with the reason. Prefer the full icon? One click. Have your own artwork? Use your own light and dark images.
 - **Batch actions:** apply, restore or change several apps at once. Filter by status (customized, needs permission, can't be changed…).
 - **Safe by design:** keeps a backup of any custom icon the app already had, never writes inside the app's `Contents`, and **Uninstall** restores everything.
-- **Private:** no network access, no analytics. Everything stays in `~/Library/Application Support/Iconos`.
+- **Private:** never connects to the internet, no analytics. Everything stays in `~/Library/Application Support/Iconos`.
 
 ---
 
@@ -143,15 +143,17 @@ cd iconos
 
 ## ❓ FAQ
 
-**Does it modify the apps?** Only their custom icon, the same file Finder writes when you paste an icon in Get Info. App code, signatures and `Contents` are not touched.
+**Does it modify the apps?** Only their custom icon, the same file Finder writes when you paste an icon in Get Info. App code, signatures and `Contents` are not touched. The only exception is the optional Dock fix for Electron apps (below), which changes the running app in memory and never its files.
 
 **What happens when an app updates?** Most updates keep the custom icon. If one removes it, the agent puts it back within a minute. If an update replaced a root-owned app, Iconos notifies you to allow it again.
 
-**Why does an app show its own icon in the Dock while it's open?** Some apps replace their Dock icon from their own code while running: apps built with egui/eframe do it every time they open, and others (Zoom, Teams, some Electron apps) do it to show an alert or a theme. For those, the custom icon still shows in Finder, Spotlight and in the Dock while the app is closed. A few apps ship a Dock tile plug-in that draws the Dock icon even while closed; Finder and Spotlight still show the custom icon. macOS doesn't let another app stop this without modifying the app, so Iconos tells you when it detects one.
+**Why does an app show its own icon in the Dock while it's open?** Some apps replace their Dock icon from their own code while running: apps built with egui/eframe do it every time they open, and others (Zoom, Teams, some Electron apps) do it to show an alert or a theme. For those, the custom icon still shows in Finder, Spotlight and in the Dock while the app is closed. A few apps ship a Dock tile plug-in that draws the Dock icon even while closed; Finder and Spotlight still show the custom icon. macOS doesn't let another app stop this without modifying the app, so Iconos tells you when it detects one. For some Electron apps there is an optional fix, see the next question.
+
+**Can Iconos keep its icon in the Dock for an Electron app that changes it?** Yes, for Electron apps whose vendor left the inspector enabled (for example Antigravity), as an option you turn on per app ("Keep the Iconos icon in the Dock", next to the Dock notice; needs the automatic switching agent). Each time the app opens, the agent sends it SIGUSR1, which makes Electron open its Node inspector on 127.0.0.1:9229. It checks that the process answering is that app, replaces `app.dock.setIcon` with an empty function and asks the Dock for the bundle icon, then closes the inspector. Nothing is written to the app, its signature and updates are untouched, and the change disappears when you quit it. Trade-offs: for under a second a debugging port is open on your Mac's loopback interface, the vendor's icon can show for the first couple of seconds after opening, and turning the option off takes effect the next time the app opens. It does nothing for apps that aren't Electron, use Electron older than 34, or whose vendor turned the inspector off.
 
 **Why isn't it on the App Store or notarized?** The App Store doesn't allow apps that modify other apps, and notarization needs a paid Apple Developer account. Iconos is free and open source; you can read every line and build it yourself.
 
-**Does it need internet?** No. It makes no network connections.
+**Does it need internet?** No. It never connects to the internet. The only network traffic is a local connection to 127.0.0.1, and only if you turn on "Keep the Iconos icon in the Dock" for an Electron app.
 
 ---
 

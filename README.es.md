@@ -2,7 +2,7 @@
 
 *Un estilo de icono limpio y uniforme para todas las apps de tu Mac, en modo claro y oscuro*
 
-![Plataforma](https://img.shields.io/badge/Plataforma-macOS_26+-black) ![Arquitectura](https://img.shields.io/badge/Arquitectura-Apple_Silicon-black) ![Licencia](https://img.shields.io/badge/Licencia-MIT-blue) ![Privacidad](https://img.shields.io/badge/Red-Ninguna-success) [![Versión](https://img.shields.io/github/v/release/asubervirojas/iconos?label=Versi%C3%B3n&color=blueviolet)](https://github.com/asubervirojas/iconos/releases/latest)
+![Plataforma](https://img.shields.io/badge/Plataforma-macOS_26+-black) ![Arquitectura](https://img.shields.io/badge/Arquitectura-Apple_Silicon-black) ![Licencia](https://img.shields.io/badge/Licencia-MIT-blue) ![Privacidad](https://img.shields.io/badge/Internet-Ninguno-success) [![Versión](https://img.shields.io/github/v/release/asubervirojas/iconos?label=Versi%C3%B3n&color=blueviolet)](https://github.com/asubervirojas/iconos/releases/latest)
 
 **Iconos** extrae solo el logo del icono de cada app, quita la placa de fondo del fabricante y lo pone sobre una ficha al estilo de macOS: blanca en modo claro y oscura en modo oscuro. Un pequeño agente en segundo plano cambia cada icono cuando cambias la apariencia y lo vuelve a poner si la app se actualiza.
 
@@ -143,15 +143,17 @@ cd iconos
 
 ## ❓ Preguntas frecuentes
 
-**¿Modifica las apps?** Solo su icono personalizado, el mismo archivo que escribe Finder al pegar un icono en Obtener información. No toca el código, la firma ni `Contents`.
+**¿Modifica las apps?** Solo su icono personalizado, el mismo archivo que escribe Finder al pegar un icono en Obtener información. No toca el código, la firma ni `Contents`. La única excepción es el arreglo opcional del Dock para apps de Electron (más abajo), que cambia la app en marcha en memoria y nunca sus archivos.
 
 **¿Qué pasa cuando una app se actualiza?** La mayoría de las actualizaciones conservan el icono. Si alguna lo quita, el agente lo vuelve a poner en menos de un minuto. Si la actualización reemplazó una app de root, Iconos te avisa para volver a darle permiso.
 
-**¿Por qué una app muestra su propio icono en el Dock mientras está abierta?** Algunas apps cambian su icono del Dock desde su propio código mientras están abiertas: las hechas con egui/eframe lo hacen cada vez que se abren, y otras (Zoom, Teams, algunas apps de Electron) lo hacen para mostrar un aviso o un tema. En esas, el icono personalizado se sigue viendo en Finder, Spotlight y en el Dock con la app cerrada. Unas pocas traen un complemento que dibuja su icono del Dock incluso cerradas; en Finder y Spotlight sí se ve el personalizado. macOS no deja que otra app lo impida sin modificarla, así que Iconos te avisa cuando detecta una.
+**¿Por qué una app muestra su propio icono en el Dock mientras está abierta?** Algunas apps cambian su icono del Dock desde su propio código mientras están abiertas: las hechas con egui/eframe lo hacen cada vez que se abren, y otras (Zoom, Teams, algunas apps de Electron) lo hacen para mostrar un aviso o un tema. En esas, el icono personalizado se sigue viendo en Finder, Spotlight y en el Dock con la app cerrada. Unas pocas traen un complemento que dibuja su icono del Dock incluso cerradas; en Finder y Spotlight sí se ve el personalizado. macOS no deja que otra app lo impida sin modificarla, así que Iconos te avisa cuando detecta una. Para algunas apps de Electron hay un arreglo opcional, mira la siguiente pregunta.
+
+**¿Puede Iconos mantener su icono en el Dock en una app de Electron que lo cambia?** Sí, en las apps de Electron cuyo fabricante dejó el inspector activado (por ejemplo Antigravity), como una opción que activas por app ("Mantener el icono de Iconos en el Dock", junto al aviso del Dock; necesita el agente del cambio automático). Cada vez que la app se abre, el agente le manda SIGUSR1, con lo que Electron abre su inspector de Node en 127.0.0.1:9229. Comprueba que quien responde es esa app, cambia `app.dock.setIcon` por una función vacía, le pide al Dock el icono del bundle y cierra el inspector. No se escribe nada en la app, su firma y sus actualizaciones no se tocan, y el cambio desaparece al cerrarla. Lo que cuesta: durante menos de un segundo hay un puerto de depuración abierto en la interfaz local de tu Mac, el icono del fabricante puede verse unos 2 segundos tras abrirla, y apagar la opción surte efecto la próxima vez que se abra la app. No hace nada con apps que no son de Electron, usan un Electron anterior al 34 o cuyo fabricante apagó el inspector.
 
 **¿Por qué no está en la App Store ni notarizada?** La App Store no permite apps que modifican otras apps, y la notarización necesita una cuenta de pago de Apple Developer. Iconos es gratis y de código abierto: puedes leer cada línea y compilarla tú mismo.
 
-**¿Necesita internet?** No. No hace ninguna conexión de red.
+**¿Necesita internet?** No. Nunca se conecta a internet. Lo único que usa es una conexión local a 127.0.0.1, y solo si activas "Mantener el icono de Iconos en el Dock" en una app de Electron.
 
 ---
 

@@ -322,6 +322,112 @@ do {
     cancelacion.cancelar()
     try comprobar(DetectorDock.analizar(cancelable.path, cancelacion: cancelacion) == nil
                   && DetectorDock.analizar(cancelable.path) == .aVeces, "cancelado devuelve nil sin guardarlo")
+    // Mantener el icono en el Dock (ParcheDock): fusible del inspector de Electron
+    let centinela = "dL7pKGdnNz796PbbjQWNKmHXBZaB9tsX"
+    func cable(_ version: UInt8, _ fusibles: String) -> Data {
+        Data(centinela.utf8) + Data([version, UInt8(fusibles.utf8.count)]) + Data(fusibles.utf8)
+    }
+    try comprobar(ParcheDock.inspectorPermitido(enDatos: Data("xx".utf8) + cable(1, "101100011"))?.valor == true, "fusible del inspector encendido")
+    try comprobar(ParcheDock.inspectorPermitido(enDatos: cable(1, "101000011"))?.valor == false, "fusible del inspector apagado")
+    try comprobar(ParcheDock.inspectorPermitido(enDatos: cable(1, "101r00011"))?.valor == false, "fusible del inspector quitado cuenta como apagado")
+    try comprobar(ParcheDock.inspectorPermitido(enDatos: cable(2, "101100011"))?.valor == false, "otra versión del cable cuenta como apagado")
+    try comprobar(ParcheDock.inspectorPermitido(enDatos: cable(1, "101"))?.valor == false, "cable demasiado corto cuenta como apagado")
+    try comprobar(ParcheDock.inspectorPermitido(enDatos: Data(cable(1, "101100011").dropLast(3))) == nil, "cable incompleto: todavía no se sabe")
+    try comprobar(ParcheDock.inspectorPermitido(enDatos: Data("sin cable".utf8)) == nil, "sin centinela no hay cable")
+    let fusible = raiz.appendingPathComponent("Dock/fusible.bin")
+    try (Data(count: (4 << 20) - 20) + cable(1, "101100011") + Data(count: 100)).write(to: fusible)
+    try comprobar(ParcheDock.inspectorPermitido(archivo: fusible) == true, "cable partido entre dos bloques de lectura")
+    func appFusible(_ nombre: String, _ cola: Data, marco: String = "Electron Framework", grande: Bool = true,
+                    version: String? = "44.9.1") throws -> URL {
+        let url = try appDock(nombre, ejecutable: "nada")
+        let carpeta = url.appendingPathComponent("Contents/Frameworks/\(marco).framework/Versions")
+        try fm.createDirectory(at: carpeta.appendingPathComponent("A/Resources"), withIntermediateDirectories: true)
+        if let version {
+            try PropertyListSerialization.data(fromPropertyList: ["CFBundleVersion": version], format: .xml, options: 0)
+                .write(to: carpeta.appendingPathComponent("A/Resources/Info.plist"))
+        }
+        try (Data(count: grande ? 31 << 20 : 1 << 20) + cola).write(to: carpeta.appendingPathComponent("A/\(marco)"))
+        try fm.createSymbolicLink(atPath: carpeta.appendingPathComponent("Current").path, withDestinationPath: "A")
+        return url
+    }
+    try comprobar(ParcheDock.disponibilidad(try appFusible("FusibleSi", cable(1, "101100011")).path) == .disponible, "Electron con el inspector permitido admite la opción")
+    try comprobar(ParcheDock.disponibilidad(try appFusible("FusibleNo", cable(1, "101000011")).path) == .noDisponible, "Electron con el inspector apagado no la admite")
+    try comprobar(ParcheDock.disponibilidad(try appFusible("SinCable", Data("nada".utf8)).path) == .noDisponible, "Electron sin cable de fusibles no la admite")
+    // Cerrar el inspector necesita process.getBuiltinModule (Node 20.16): solo Electron 34 o mas
+    try comprobar(ParcheDock.disponibilidad(try appFusible("Electron33", cable(1, "101100011"), version: "33.4.0").path) == .noDisponible, "Electron 33 no la admite")
+    try comprobar(ParcheDock.disponibilidad(try appFusible("Electron34", cable(1, "101100011"), version: "34.0.0").path) == .disponible, "Electron 34 la admite")
+    try comprobar(ParcheDock.disponibilidad(try appFusible("SinVersion", cable(1, "101100011"), version: nil).path) == .noDisponible, "sin la versión de Electron no se actúa")
+    try comprobar(ParcheDock.disponibilidad(try appFusible("VersionRara", cable(1, "101100011"), version: "x.y").path) == .noDisponible, "una versión ilegible no se actúa")
+    try comprobar(ParcheDock.disponibilidad(try appFusible("MarcoChico", cable(1, "101100011"), grande: false).path) == .noDisponible, "un framework de menos de 30 MB no cuenta")
+    let renombradoSi = try appFusible("RenombradoSi", cable(1, "101100011"), marco: "Codex Framework")
+    try texto(renombradoSi.appendingPathComponent("Contents/Resources/app.asar"), "x")
+    try comprobar(ParcheDock.disponibilidad(renombradoSi.path) == .disponible, "Electron con el framework renombrado admite la opción")
+    try comprobar(ParcheDock.disponibilidad(try appDock("NoElectron", ejecutable: "nada").path) == .noEsElectron, "una app que no es de Electron no la admite")
+    // El resultado se guarda por fecha y tamaño del framework: al cambiar el binario se vuelve a leer
+    let cambia = try appFusible("CambiaFusible", cable(1, "101000011"))
+    try comprobar(ParcheDock.disponibilidad(cambia.path) == .noDisponible, "antes de la actualización")
+    try (Data(count: 31 << 20) + cable(1, "101100011") + Data(count: 10))
+        .write(to: cambia.appendingPathComponent("Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework"))
+    try comprobar(ParcheDock.disponibilidad(cambia.path) == .disponible, "al actualizar el framework se vuelve a leer el fusible")
+    // Mandar SIGUSR1 a un proceso sin manejador lo termina: solo se manda si el nucleo dice que lo captura
+    let yo = getpid()
+    try comprobar(!ParcheDock.senalCapturada(yo), "sin manejador de SIGUSR1 no se manda la señal")
+    signal(SIGUSR1) { _ in }
+    try comprobar(ParcheDock.senalCapturada(yo), "con manejador de SIGUSR1 se puede avisar")
+    signal(SIGUSR1, SIG_IGN)
+    try comprobar(!ParcheDock.senalCapturada(yo), "SIGUSR1 ignorada no cuenta")
+    signal(SIGUSR1, SIG_DFL)
+    try comprobar(!ParcheDock.senalCapturada(2_147_483_000), "un proceso que no existe no captura nada")
+    // El puerto del inspector: solo se actua con el puerto libre
+    let escucha = socket(AF_INET, SOCK_STREAM, 0)
+    var dir = sockaddr_in()
+    dir.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
+    dir.sin_family = sa_family_t(AF_INET)
+    dir.sin_addr.s_addr = UInt32(0x7f00_0001).bigEndian
+    let puertoEnlazado = withUnsafePointer(to: &dir) { $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { bind(escucha, $0, socklen_t(MemoryLayout<sockaddr_in>.size)) } }
+    try comprobar(puertoEnlazado == 0 && listen(escucha, 1) == 0, "puerto de prueba abierto")
+    var largo = socklen_t(MemoryLayout<sockaddr_in>.size)
+    _ = withUnsafeMutablePointer(to: &dir) { $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { getsockname(escucha, $0, &largo) } }
+    let puertoPrueba = UInt16(bigEndian: dir.sin_port)
+    try comprobar(ParcheDock.puertoAbierto(puertoPrueba), "puerto con algo escuchando")
+    try comprobar(ParcheDock.escuchaEnPuerto(yo, puertoPrueba), "el núcleo ve el puerto escuchado por este proceso")
+    try comprobar(!ParcheDock.escuchaEnPuerto(yo, puertoPrueba == 65535 ? 65534 : puertoPrueba + 1), "otro puerto no coincide")
+    try comprobar(!ParcheDock.escuchaEnPuerto(2_147_483_000, puertoPrueba), "un proceso que no existe no escucha nada")
+    close(escucha)
+    try comprobar(!ParcheDock.puertoAbierto(puertoPrueba), "puerto libre tras cerrar")
+    try comprobar(!ParcheDock.escuchaEnPuerto(yo, puertoPrueba), "el núcleo ya no ve el puerto tras cerrar")
+    try comprobar((ParcheDock.inicioProceso(yo) ?? 0) > 0, "el núcleo devuelve la hora de inicio del proceso")
+    try comprobar(ParcheDock.inicioProceso(2_147_483_000) == nil, "un proceso que no existe no tiene hora de inicio")
+    // Configuracion guardada antes de la opcion: se lee, y apagada no deja rastro
+    var viejo = try JSONDecoder().decode(Gestionada.self, from: Data(#"{"ruta":"/Applications/A.app","nombre":"A","modo":"automatico","ajustes":{},"propia":false}"#.utf8))
+    try comprobar(!viejo.mantenerIconoDock && viejo.conservarIconoDock == nil, "configuración anterior sin la opción")
+    viejo.mantenerIconoDock = true
+    try comprobar(try JSONDecoder().decode(Gestionada.self, from: JSONEncoder().encode(viejo)).mantenerIconoDock, "la opción se guarda y se lee")
+    viejo.mantenerIconoDock = false
+    try comprobar(!String(decoding: try JSONEncoder().encode(viejo), as: UTF8.self).contains("conservarIconoDock"), "apagada no queda en config.json")
+    // Extractor: detalle oscuro sobre placa oscura cromatica (p. ej. tallo marron sobre morado oscuro)
+    let tamano = 1024
+    let ctx = CGContext(
+        data: nil, width: tamano, height: tamano, bitsPerComponent: 8, bytesPerRow: tamano * 4,
+        space: CGColorSpace(name: CGColorSpace.sRGB)!,
+        bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
+    )!
+    ctx.setFillColor(CGColor(srgbRed: 0.165, green: 0.110, blue: 0.235, alpha: 1))
+    ctx.addPath(CGPath(roundedRect: CGRect(x: 100, y: 100, width: 824, height: 824), cornerWidth: 184, cornerHeight: 184, transform: nil))
+    ctx.fillPath()
+    ctx.setFillColor(CGColor(srgbRed: 0.90, green: 0.55, blue: 0.20, alpha: 1))
+    ctx.fill(CGRect(x: 392, y: 300, width: 240, height: 220))
+    ctx.setFillColor(CGColor(srgbRed: 0.420, green: 0.247, blue: 0.122, alpha: 1))
+    ctx.fill(CGRect(x: 488, y: 520, width: 48, height: 140))
+    let extraidoOscuro = Extractor.extraer(ctx.makeImage()!)
+    let rasterOscuro = Extractor.Raster(extraidoOscuro.light)
+    let alfaTallo = rasterOscuro.bytes[(434 * rasterOscuro.w + 512) * 4 + 3]
+    try comprobar(extraidoOscuro.plate && alfaTallo > 200, "extractor conserva detalle oscuro sobre placa oscura cromática")
+    // Aviso del Dock: no mencionar la opcion de abajo cuando la app no la tiene
+    try comprobar(!CambioDelDock.siempre.detalle(conOpcion: false).contains("Electron")
+                  && CambioDelDock.siempre.detalle(conOpcion: true).contains("Electron"), "detalle Dock siempre según disponibilidad")
+    try comprobar(!CambioDelDock.aVeces.detalle(conOpcion: false).contains("Electron")
+                  && CambioDelDock.aVeces.detalle(conOpcion: true).contains("Electron"), "detalle Dock aVeces según disponibilidad")
     // Fixture de arte para probar el generador y el banco sin leer apps instaladas.
     let muestra = try app("Muestra", en: raiz.appendingPathComponent("Muestras"))
     try fm.createDirectory(at: muestra.appendingPathComponent("Contents/Resources"), withIntermediateDirectories: true)

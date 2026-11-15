@@ -516,7 +516,8 @@ extension Almacen {
                 defer { if !conservarRespaldo { try? fm.removeItem(at: preparada) } }
                 do {
                     try Aplicador.validar(g.ruta, bundleId: g.bundleId)
-                    if let actual = config.apps.first(where: { $0.ruta == g.ruta }) {
+                    let anterior = config.apps.first(where: { $0.ruta == g.ruta })
+                    if let actual = anterior {
                         try Aplicador.validar(g.ruta, bundleId: actual.bundleId)
                     }
                     let destino = carpeta(g.ruta)
@@ -548,6 +549,8 @@ extension Almacen {
                     let d = diagnostico(g, arte: arte)
                     g.confianza = d.confianza
                     g.metodo = d.metodo
+                    // Opcion local del Mac: al importar no se activa desde fuera ni se apaga si ya estaba
+                    g.mantenerIconoDock = anterior?.mantenerIconoDock ?? false
                     var siguiente = config
                     siguiente.apps.removeAll { $0.ruta == g.ruta }
                     siguiente.apps.append(g)

@@ -91,6 +91,8 @@ final class Estudio: ObservableObject {
     @Published private(set) var diagnostico: Diagnostico?
     /// Si la app elegida pone su propio icono en el Dock mientras esta abierta
     @Published private(set) var cambioDock: CambioDelDock?
+    /// Si a la app elegida se le puede mantener el icono en el Dock (Electron con el inspector permitido)
+    @Published private(set) var parcheDock = DisponibilidadParche.noEsElectron
     private var tareaDock: Task<Void, Never>?
     @Published private(set) var trabajando = false
     @Published private(set) var escaneando = false
@@ -525,6 +527,7 @@ final class Estudio: ObservableObject {
         quitarPropiasPendiente = false
         diagnostico = nil
         cambioDock = nil
+        parcheDock = .noEsElectron
         tareaArte?.cancel()
         tareaPrevias?.cancel()
         tareaDock?.cancel()
@@ -555,8 +558,14 @@ final class Estudio: ObservableObject {
         // se elige otra app antes de que termine
         tareaDock = Task { [weak self] in
             let cambio = await DetectorDock.analizarEnCola(ruta)
+            // Solo las que cambian el icono por codigo propio: lee el framework de Electron (cientos de MB
+            // la primera vez; despues sale de la memoria)
+            let parche = cambio == .aVeces
+                ? await Task.detached(priority: .utility) { ParcheDock.disponibilidad(ruta) }.value
+                : DisponibilidadParche.noEsElectron
             guard !Task.isCancelled, let self, self.seleccion == ruta else { return }
             self.cambioDock = cambio
+            self.parcheDock = parche
         }
     }
 
@@ -742,6 +751,8 @@ final class Estudio: ObservableObject {
                         var guardada = Almacen.sellar(g)
                         guardada.confianza = d.confianza
                         guardada.metodo = d.metodo.isEmpty ? nil : d.metodo
+                        // Mantener el icono en el Dock se cambia aparte y no pasa por el borrador
+                        guardada.mantenerIconoDock = anterior?.mantenerIconoDock ?? false
                         // Las imagenes propias solo se tocan cuando el icono y la configuracion ya quedaron:
                         // si algo falla, Descartar vuelve de verdad a lo de antes
                         do {
@@ -932,6 +943,38 @@ final class Estudio: ObservableObject {
                     self.config = c
                     self.avisarAgente()
                 }
+            }
+        }
+    }
+
+    /// Mantener el icono de Iconos en el Dock (ParcheDock) para una app gestionada
+    func mantenerIconoDock(_ ruta: String) -> Bool { gestionada(ruta)?.mantenerIconoDock ?? false }
+
+    /// Como reiniciarDock: cambia en el acto y se guarda con el bloqueo fuera del hilo principal. El
+    /// agente lo aplica al abrirse la app, o ya si esta abierta
+    func fijarMantenerIconoDock(_ ruta: String, _ valor: Bool) {
+        guard let i = config.apps.firstIndex(where: { $0.ruta == ruta }), config.apps[i].mantenerIconoDock != valor else { return }
+        config.apps[i].mantenerIconoDock = valor
+        Task { [weak self] in
+            let resultado = await Task.detached(priority: .userInitiated) {
+                Result {
+                    try Almacen.conBloqueo { () throws -> Configuracion in
+                        var c = Almacen.cargar()
+                        guard let j = c.apps.firstIndex(where: { $0.ruta == ruta }) else { return c }
+                        c.apps[j].mantenerIconoDock = valor
+                        try Almacen.guardar(c)
+                        return c
+                    }
+                }
+            }.value
+            guard let self else { return }
+            switch resultado {
+            case .failure(let fallo):
+                self.mostrar(fallo)
+                self.config = Almacen.cargar()
+            case .success(let c):
+                self.config = c
+                self.avisarAgente()
             }
         }
     }

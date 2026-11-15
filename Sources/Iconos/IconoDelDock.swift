@@ -5,7 +5,8 @@ import Foundation
 /// app.dock.setIcon para avisos o temas) o traen un NSDockTilePlugIn. El icono personalizado es del
 /// bundle: Finder, Spotlight y el Dock con la app cerrada lo muestran, pero mientras la app corre el
 /// Dock ensena lo que ella dibuja. Otra app no puede impedirlo sin modificarla (escribir en Contents o
-/// inyectar codigo), asi que Iconos solo avisa
+/// inyectar codigo), asi que Iconos avisa. En apps de Electron compatibles la opcion Mantener el icono
+/// de Iconos en el Dock (ParcheDock, MantenedorDock) lo evita en memoria
 enum CambioDelDock: String, Codable, Equatable {
     /// Lo redibuja en cada arranque (eframe lo hace siempre en el primer fotograma)
     case siempre
@@ -22,12 +23,20 @@ enum CambioDelDock: String, Codable, Equatable {
         }
     }
 
-    var detalle: String {
+    func detalle(conOpcion: Bool = false) -> String {
         switch self {
         case .siempre:
-            String(localized: "Cada vez que se abre, la app pone su propio icono en el Dock. El de Iconos se ve en Finder, Spotlight y en el Dock cuando está cerrada. macOS no deja que otra app lo impida.")
+            if conOpcion {
+                String(localized: "Cada vez que se abre, la app pone su propio icono en el Dock. El de Iconos se ve en Finder, Spotlight y en el Dock cuando está cerrada. macOS no deja que otra app lo impida, salvo en algunas apps de Electron con la opción de abajo.")
+            } else {
+                String(localized: "Cada vez que se abre, la app pone su propio icono en el Dock. El de Iconos se ve en Finder, Spotlight y en el Dock cuando está cerrada. macOS no deja que otra app lo impida.")
+            }
         case .aVeces:
-            String(localized: "Mientras está abierta puede poner su propio icono en el Dock (por ejemplo, para mostrar un aviso). Cuando lo haga, verás el suyo hasta que la cierres. En Finder y Spotlight sigue el de Iconos.")
+            if conOpcion {
+                String(localized: "Mientras está abierta puede poner su propio icono en el Dock (por ejemplo, para mostrar un aviso). Cuando lo haga, verás el suyo hasta que la cierres, salvo en algunas apps de Electron con la opción de abajo. En Finder y Spotlight sigue el de Iconos.")
+            } else {
+                String(localized: "Mientras está abierta puede poner su propio icono en el Dock (por ejemplo, para mostrar un aviso). Cuando lo haga, verás el suyo hasta que la cierres. En Finder y Spotlight sigue el de Iconos.")
+            }
         case .dibujaPropio:
             String(localized: "Trae un complemento que dibuja su icono en el Dock, incluso cerrada. Puede que el Dock no muestre el de Iconos; en Finder y Spotlight sí se ve.")
         }
@@ -91,14 +100,10 @@ enum DetectorDock {
 
     private static func detectar(contents: URL, info: [String: Any], ejecutable: URL?, _ c: Cancelacion?) throws -> CambioDelDock? {
         if info["NSDockTilePlugIn"] != nil { return .dibujaPropio }
-        let fm = FileManager.default
         let recursos = contents.appendingPathComponent("Resources")
         // Electron trae el selector en su framework para app.dock.setIcon: solo cuenta si el JS de la
-        // app lo llama. Algunas renombran el framework (ChatGPT), pero traen app.asar o app/
-        let esElectron = fm.fileExists(atPath: contents.appendingPathComponent("Frameworks/Electron Framework.framework").path)
-            || fm.fileExists(atPath: recursos.appendingPathComponent("app.asar").path)
-            || fm.fileExists(atPath: recursos.appendingPathComponent("app/package.json").path)
-        if esElectron { return try electronCambiaIcono(recursos, c) ? .aVeces : nil }
+        // app lo llama
+        if esElectron(contents) { return try electronCambiaIcono(recursos, c) ? .aVeces : nil }
         // Rust (objc2) y binarios nativos: el selector solo queda en el binario si se usa
         if let ejecutable {
             var haySelector = false, hayEframe = false
@@ -114,6 +119,15 @@ enum DetectorDock {
             if try recorrer(binario, solape: selector.count, c, { contiene($0, selector) }) { return .aVeces }
         }
         return nil
+    }
+
+    /// Algunas apps renombran el framework de Electron (ChatGPT), pero traen app.asar o app/
+    static func esElectron(_ contents: URL) -> Bool {
+        let fm = FileManager.default
+        let recursos = contents.appendingPathComponent("Resources")
+        return fm.fileExists(atPath: contents.appendingPathComponent("Frameworks/Electron Framework.framework").path)
+            || fm.fileExists(atPath: recursos.appendingPathComponent("app.asar").path)
+            || fm.fileExists(atPath: recursos.appendingPathComponent("app/package.json").path)
     }
 
     /// Mach-O de Frameworks y PlugIns que corren dentro del proceso de la app. Las apps, extensiones y
